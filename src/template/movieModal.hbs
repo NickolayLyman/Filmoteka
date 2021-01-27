@@ -1,0 +1,33 @@
+<!-- Шаблон модалки одного фильма -->
+
+<div class="movie-container">
+    <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{this.poster_path}}" alt="{{this.title}}">
+    <div class="movie-description">
+        <h1>{{this.title}}</h1>
+        <ul>
+            <li>
+                <span>Vote / Votes</span>
+                <span>{{this.vote_average}}</span> /
+                <span>{{this.vote_count}}</span>
+            </li>
+            <li>
+                <span>Popularity</span>
+                <span>{{this.popularity}}</span>
+            </li>
+            <li>
+                <span>Original title</span>
+                <span>{{this.original_title}}</span>
+            </li>
+            <li>
+                <span>Genre</span>
+                {{#each this.genres}}
+                <span>{{name}}</span>
+                {{/each}}
+            </li>
+        </ul>
+        <h2>ABOUT</h2>
+        <p>{{this.overview}}</p>
+        <button class="add-to-watched" data-movie-id="{{this.id}}">ADD TO WATCHED</button>
+        <button class="add-to-queue" data-movie-id="{{this.id}}">ADD TO QUEUE</button>
+    </div>
+</div>
