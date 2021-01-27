@@ -1,0 +1,42 @@
+.page-header {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    background-image: url(../img/bg-img-home1024.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.ref-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-wrapper {
+    display: flex;
+}
+.logo-img {
+    margin-right: 10px;
+}
+.logo-ref{
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    color: #FFFFFF
+}
+.home-ref {
+    margin-right: 40px;
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.library-ref {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
