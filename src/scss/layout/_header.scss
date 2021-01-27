@@ -5,10 +5,12 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .ref-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 37px;
 }
 .logo-wrapper {
     display: flex;
@@ -39,4 +41,24 @@
     line-height: 1.2;
     color: #FFFFFF;
     text-transform: uppercase;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.search-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.search-field {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid #FFFFFF;
+}
+.search-field::placeholder {
+    font-size: 14px;
+    color: #FFFFFF;
 }
