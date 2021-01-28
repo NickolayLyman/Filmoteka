@@ -5,6 +5,7 @@ const refs = {
 
     modalDiv: document.querySelector('.js-lightbox'),
     overlayDiv: document.querySelector('.lightbox__overlay'),
+    modalDivContent: document.querySelector('.lightbox__content'),
     openImg: document.querySelector('.lightbox__image'),
 };
 
