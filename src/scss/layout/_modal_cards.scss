@@ -1,3 +1,7 @@
+.movie-container {
+  display: flex;
+}
+
 /* Lightbox */
 .lightbox {
   display: flex;
@@ -27,6 +31,7 @@
 }
 
 .lightbox__content {
+  background-color: white;
   transform: scale(0.95);
 }
 
