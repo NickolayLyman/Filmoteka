@@ -3,10 +3,10 @@ import updateMovieModal from './updateMovieModal';
 import refs from './refs'
 
 
-refs.gallery.addEventListener("click", onImgClick);
+refs.gallery.addEventListener('click', onImgClick);
 
 function onImgClick(e) {
-  if (e.target.nodeName !== "IMG") {
+  if (e.target.nodeName !== 'IMG') {
   return;
   }
  
@@ -21,7 +21,7 @@ function onImgClick(e) {
 function openModal(movieId) {
   window.addEventListener("keydown", onPressEscape);
   refs.modalDiv.classList.add("is-open");
-  refs.modalDivContent.innerHTML = '';
+  refs.modalDivContent.innerHTML='';
   fetchOneMovie(movieId).then(data => updateMovieModal(data));
 }
 
