@@ -1,5 +1,96 @@
 .movie-container {
   display: flex;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  width: 882px;
+  height: 600px;
+  padding: 30px;
+}
+
+.movie-image {
+  width: 100%;
+  height: 100%;
+}
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: scale-down;
+}
+
+.movie-description-block {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.movie-description-title {
+  font-size: 30px;
+  line-height: 1.17;
+  margin-bottom: 20px;
+}
+
+.movie-description-list-left-item {
+  color: #8c8c8c;
+  margin-bottom: 10px;
+  margin-right: 83px;
+}
+.movie-description-list-right-item {
+  margin-bottom: 10px;
+}
+.movie-about {
+  width: 426px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.movie-about-title {
+  line-height: 1.33;
+  margin-bottom: 10px;
+}
+
+.movie-about-text {
+  line-height: 1.67;
+}
+.movie-rating {
+  background-color: #ff6b01;
+  border-radius: 5px;
+  width: 36px;
+  height: 16px;
+  padding: 1px 10px;
+  color: white;
+}
+
+.movie-vote-count {
+  width: 36px;
+  height: 16px;
+  padding: 1px 4px;
+  background: #f7f7f7;
+  border-radius: 5px;
+}
+
+.movie-description button {
+  background-color: #ff6b01;
+  border: none;
+  outline: none;
+  width: 136px;
+  height: 44px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+}
+.movie-description button:hover,
+button:focus {
+  cursor: pointer;
+}
+.movie-description button:active {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.add-to-watched {
+  margin-right: 15px;
 }
 
 /* Lightbox */
@@ -32,6 +123,7 @@
 
 .lightbox__content {
   background-color: white;
+  border-radius: 5px;
   transform: scale(0.95);
 }
 

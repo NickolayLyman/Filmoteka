@@ -1,4 +1,3 @@
-
 import refs from './refs';
 import movieModalTpl from '../template/movieModal.hbs';
 
