@@ -1,0 +1,35 @@
+.page-header-library {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../img/bg-img-library1024.jpg),;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.btn { 
+    width: 136px;
+    height: 44px;
+    background-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    &:not(:last-child) {
+        margin-right: 15px;
+    }
+    &:hover,
+    :focus {
+        background-color: #FF6B01;
+        border-color: #FF6B01;
+    }
+}
+
+
+
