@@ -9,6 +9,7 @@ const refs = {
   container: document.getElementById('.container'),
   lightbox: document.querySelector('.lightbox'),
   header: document.querySelector('#page-header'),
+  galleryList: document.querySelector('.gallery'),
 };
 
 export default refs;
