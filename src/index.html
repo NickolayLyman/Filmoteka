@@ -3,43 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <title>Filmoteka</title>
 </head>
 <body>
-<header>
-  <div id="header"></div>
-</header>
+<header id="page-header" class="page-header">
+  <div id="header" class="container">
+    <div class="ref-wrapper">
+    <div class="logo-wrapper">
+      <img class="logo-img" src="./img/film.svg" alt="film">
+      <a class="logo-ref"href="index.html">Filmoteka</a>
+    </div>
+    <div class="page-refs">
+      <a class="home-ref" href="index.html">Home</a>
+      <a class="library-ref remove" href="#">MY Library</a>
+    </div>
+    </div>
+    <div class="search-form" id="search-form">
+    <input type="text" name="search" autocomplete="off" placeholder="Поиск фильмов" class="search-field">
+    <button type="submit" class="search-btn"> 
+      <svg class="search-icon" width="12" height="12"><use href="./img/sprite.svg#icon-search-btn"></use></svg>
+    </button>
+  </div>
+  </div>
+<!-- <header>
+  <div id="header"></div> -->
+</header> 
+
 <main>
-  <div class="container" id="container">
+  
   <div id="gallery">
-    <!-- <ul class="gallery-items">
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-          <li class="gallery-item"></li>
-        </ul> -->
   </div>
   <div id="pagination"></div>
-  </div>
+
+
+
+<!--   <div id="gallery"></div>
+  <div id="pagination"></div> -->
+
+  <!-- Section-Films_Cards -->
+  <section id="container">
+    <!-- Search-form -->
+    <!-- <form class="search-form" id="search-form">
+      <input type="text" name="query" autocomplete="off" placeholder="Поиск фильмов" />
+    </form> -->
+  
+    <!-- Gallery -->
+    <ul id="gallery" class="gallery">
+      <!-- Список <li> с карточками изображений -->
+    </ul>
+  
+    <!-- ModalCards -->
+    <div class="lightbox js-lightbox">
+      <div class="lightbox__overlay"></div>
+  
+      <div class="lightbox__content">
+        <img class="lightbox__image" />
+      </div>
+  
+    </div>
+  
+  </section>
+
 </main>
+
 <footer>
   <div id="footer"></div>
+  <div class="page-footer">
+  <p class="copy-right-text">&copy;2020 | All Rights Reserved | </p>
+   <p class="text-company">Developed with <svg class="icon-heart" width="14" height="12.88"><use href="./img/sprite.svg#icon-heart"></use></svg>by  <a class="text-company-link">GoIT Students</a></p>
+  </div>
+
 </footer>
 </body>
 </html>
