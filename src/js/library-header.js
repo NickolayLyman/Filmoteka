@@ -1,4 +1,5 @@
 import itemsTemplate from '../template/myLibraryHeaderTamplate.hbs';
+import createLibraryPage from './myLibrary';
 
 const headerRef = document.querySelector('#page-header');
 const libraryRef = document.querySelector('.library-ref');
@@ -24,4 +25,6 @@ removeListenerBtnRef.addEventListener('click', () => {
 if (location.hash === '#library'){
   createMarkup()
     removeListenerBtnRef.removeEventListener('click', createMarkup);
+  
 };
+

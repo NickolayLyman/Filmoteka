@@ -8,5 +8,7 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
 fetchMovies().then(data => updateMarkup(data));
+
 createLibraryPage();
+
 addDataToLocalStorage();
