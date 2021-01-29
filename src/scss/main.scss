@@ -2,11 +2,12 @@
 @import './variables/variables';
 @import './base/base';
 @import './components/container';
+@import './layout/container';
 @import './layout/header';
-@import './layout/my-library-header';
 @import './layout/gallery';
-@import './layout/footer';
+@import './layout/my-library-header';
 @import './layout/_spinner';
 @import './layout/modal_cards';
-@import './layout/footer';
 @import './layout/pnotify';
+@import './layout/footer';
+
