@@ -20,3 +20,8 @@ libraryRef.addEventListener('click', createMarkup);
 removeListenerBtnRef.addEventListener('click', () => {
   removeListenerBtnRef.removeEventListener('click', createMarkup);
 });
+
+if (location.hash === '#library'){
+  createMarkup()
+    removeListenerBtnRef.removeEventListener('click', createMarkup);
+};
