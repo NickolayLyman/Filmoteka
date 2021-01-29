@@ -4,12 +4,10 @@ import '@pnotify/core/dist/BrightTheme.css';
 
 function notify(nameOfList) {
   PNotify.notice({
-    text: `The movie has been added to the list ${nameOfList}`,
+    text: `The movie has been added to the ${nameOfList} list`,
     icon: true,
-    //delay: 5000,
-    closer: false,
     styling: 'custom',
-    delay: 1000,
+    delay: 1500,
     overlayClosesPinned: true,
   });
 }

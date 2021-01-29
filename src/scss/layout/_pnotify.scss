@@ -1,6 +1,5 @@
 [data-pnotify] .custom-container {
   background-color: #ff6b08;
-  background-image: none;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -8,10 +7,10 @@
   font-size: 20px;
   color: white;
   text-align: center;
-  text-shadow: 1px 1px 2px black;
-  @media screen and (min-width: 1200px) {
-    top: 50px;
-    right: 50%;
-    transform: rotate(35deg);
-  }
+  text-shadow: 1px 1px 2px grey;
+  // @media screen and (min-width: 1200px) {
+  //   top: 50px;
+  //   right: 50%;
+  //   transform: rotate(35deg);
+  // }
 }

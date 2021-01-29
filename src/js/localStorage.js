@@ -6,11 +6,11 @@ function addDataToLocalStorage() {
     if (event.target.dataset.actionWatched) {
       //event.target.setAttribute('disabled', 'true');
       let movieId = event.target.dataset.movieId;
-      setToLocalStorage(movieId, 'watched', 'WATCHED');
+      setToLocalStorage(movieId, 'watched', '"WATCHED"');
     }
     if (event.target.dataset.actionQueue) {
       let movieId = event.target.dataset.movieId;
-      setToLocalStorage(movieId, 'queue', 'QUEUE');
+      setToLocalStorage(movieId, 'queue', '"QUEUE"');
     }
   });
 }
