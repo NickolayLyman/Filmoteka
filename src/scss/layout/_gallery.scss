@@ -12,6 +12,8 @@
       margin-bottom: 20px;
     }
   }
+}
+.gallery-item {
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     width: calc((100% - 30px) / 2);
     margin-right: 30px;
@@ -24,6 +26,8 @@
       margin-bottom: 0;
     }
   }
+}
+.gallery-item {
   @media screen and (min-width: 1024px) {
     width: calc((100% - 2 * 30px) / 3);
     margin-right: 30px;
@@ -32,7 +36,7 @@
     &:nth-child(3n) {
       margin-right: 0;
     }
-    &:nth-last-child(-n + 3) {
+    &:nth-last-child(-n + 2) {
       margin-bottom: 0;
     }
   }
