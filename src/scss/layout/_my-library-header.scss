@@ -1,9 +1,15 @@
 .page-header-library {
     padding-top: 40px;
-    padding-bottom: 100px;
+    padding-bottom: 75px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../img/bg-img-library1024.jpg),;
     background-size: cover;
     background-repeat: no-repeat;
+    @media screen and (min-width: 480px) and (max-width: 1023px){
+        background-image:linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url(../img/bg-img-library768.jpg);
+      }
+     @media screen and (max-width: 479px){
+        background-image:linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url(../img/bg-img-library320.jpg);
+      }
     
 }
 
@@ -25,7 +31,7 @@
         margin-right: 15px;
     }
     &:hover,
-    :focus {
+     :focus {
         background-color: #FF6B01;
         border-color: #FF6B01;
     }
