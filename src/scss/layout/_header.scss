@@ -4,6 +4,13 @@
     background-image:linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../img/bg-img-home1024.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    @media screen and (min-width: 480px) and (max-width: 1023px){
+        background-image:linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url(../img/bg-img-home768.jpg);
+      }
+     @media screen and (max-width: 479px){
+        background-image:linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url(../img/bg-img-home320.jpg);
+      }
+    
 }
 
 .ref-wrapper {
@@ -23,7 +30,10 @@
     font-weight: 500;
     font-size: 30px;
     line-height: 1.16;
-    color: #FFFFFF
+    color: #FFFFFF;
+    @media screen and (max-width: 480px){
+      display: none;
+    }
 }
 .home-ref {
     margin-right: 40px;
@@ -44,21 +54,32 @@
 }
 
 .search-form {
-    display: flex;
-    justify-content: center;
+    width: 336px;
+    margin: 0 auto;
+    position: relative;
+    @media screen and (max-width: 767px){
+        width: 280px;
+    }
 }
 .search-btn {
     background-color: transparent;
     border: none;
+    position: absolute;
+    bottom: 3px;
+    right: 0px;
 }
 
 .search-field {
-    padding: 5px;
+    width: 336px;
+    padding-bottom: 5px;
     background-color: transparent;
     border: none;
     border-bottom: 0.5px solid #FFFFFF;
     color: #FFFFFF;
     font-size: 14px;
+    @media screen and (max-width: 767px){
+        width: 280px;
+    }
 }
 .search-field::placeholder {
     font-size: 14px;

@@ -1,6 +1,5 @@
 import itemsTemplate from '../template/myLibraryHeaderTamplate.hbs';
 
-
 const headerRef = document.querySelector('#page-header');
 const libraryRef = document.querySelector('.library-ref');
 const inputRef = document.querySelector('.search-form'); 
@@ -14,7 +13,6 @@ const createMarkup = () => {
 inputRef.remove()
 pageRef.insertAdjacentHTML('afterend', markup)
 headerRef.classList.replace('page-header', 'page-header-library')
-
 };
 
 libraryRef.addEventListener('click', createMarkup);
