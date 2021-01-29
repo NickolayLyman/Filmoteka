@@ -1,0 +1,35 @@
+.page-footer {
+  padding-top: 30px;
+  padding-bottom: 28px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+}
+
+.copy-right-text,
+.text-company {
+  margin-left: 10px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  align-items: center;
+  color: #545454;
+  display: flex;
+}
+
+.copy-right-text {
+  padding-right: 10px;
+}
+
+.text-company-link {
+  text-decoration: underline;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
+  align-items: center;
+  color: #545454;
+  display: flex;
+  padding-left: 5px;
+}
