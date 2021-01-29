@@ -21,7 +21,7 @@ removeListenerBtnRef.addEventListener('click', () => {
   removeListenerBtnRef.removeEventListener('click', createMarkup);
 });
 
-if (location.hash === '#/library'){
+if (location.hash === '#library'){
   createMarkup()
     removeListenerBtnRef.removeEventListener('click', createMarkup);
 };
