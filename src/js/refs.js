@@ -10,6 +10,8 @@ const refs = {
   lightbox: document.querySelector('.lightbox'),
   header: document.querySelector('#page-header'),
   galleryList: document.querySelector('.gallery'),
+  watchedBtn: document.querySelector('#watched-film-btn'),
+  homeBtn: document.querySelector('.home-ref'),
 };
 
 export default refs;
