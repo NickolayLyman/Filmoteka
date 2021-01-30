@@ -3,6 +3,8 @@ import refs from './refs.js';
 
 async function getMoviesFromLocalStorage(key) {
   if (localStorage.getItem(key)) {
+    refs.galleryList.classList.remove('empty-page-style');
+    refs.galleryList.classList.add('gallery');
     let dataFromLocalStorage = localStorage.getItem(key);
     let watchedFilmId = dataFromLocalStorage.split(',');
     let movieObjects = await Promise.all(
