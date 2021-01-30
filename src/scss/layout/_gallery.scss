@@ -73,10 +73,20 @@
 //   border-radius: 5px;
 // }
 
-.movie-title {
+.movie-title,
+.movie-info {
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.movie-title {
+  margin-top: 10px;
+  margin-bottom: 3px;
   text-transform: uppercase;
+}
+.movie-info {
+  color: #ff6b08;
 }

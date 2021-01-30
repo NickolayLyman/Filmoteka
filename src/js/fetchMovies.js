@@ -1,3 +1,5 @@
+import refs from './refs';
+
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 
 function fetchMovies() {
@@ -5,8 +7,40 @@ function fetchMovies() {
 
     return fetch(url)
         .then(response => response.json())
-        .then(data => data.results)
+        .then(({ results }) => {
+            fetchGenres().then(({ genres }) => {
+            updateMarkup(results, genres);
+            });
+    })
         .catch(error => console.log(error));
 }
 
-export default fetchMovies;
+function fetchGenres() {
+  return fetch(`https://api.themoviedb.org/3/genre/movie/list?${apiKey}`).then(response =>
+    response.json(),
+  );
+}
+function updateMarkup(films, genres) {
+
+  films.map(({ id, poster_path, title, release_date, genre_ids }) => {
+    const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
+    const mapGenres = filterGenres.map(({ name }) => name);
+      if (mapGenres.length > 3) {
+          mapGenres.splice(3, 0, 'Other')
+      }
+    const movieGenres = mapGenres.slice(0, 4).join(', ')
+
+    const markup = `
+    <li class="movie-card">
+        <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" 
+            alt="${title}" data-movie-id="${id}">
+        <h1 class="movie-title">${title}</h1>
+        <p class="movie-info">${movieGenres} | ${release_date.split('-')[0]}</p>    
+    </li>
+    `;
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
+   
+  });
+}
+  
+fetchMovies()
