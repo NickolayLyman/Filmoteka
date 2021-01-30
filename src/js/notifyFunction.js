@@ -7,7 +7,7 @@ function notify(nameOfList) {
     text: `The movie has been added to the ${nameOfList} list`,
     icon: true,
     styling: 'custom',
-    delay: 1500,
+    delay: 700,
     overlayClosesPinned: true,
   });
 }

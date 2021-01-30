@@ -27,29 +27,28 @@ function createLibraryPage() {
       }
     });
   });
-}
 
-refs.header.addEventListener('click', () => {
-  let watchedBtn = document.querySelector('#watched-film-btn');
-  let queueBtn = document.querySelector('#watched-queue-btn');
-  if (event.target.dataset.queueFilmBtn) {
-    console.log('target', event.target);
-    refs.gallery.innerHTML = '';
-    getMoviesFromLocalStorage('queue');
-    toggleClass(queueBtn);
-    toggleClass(watchedBtn);
-    queueBtn.setAttribute('disabled', true);
-    watchedBtn.removeAttribute('disabled');
-  }
-  if (event.target.dataset.watchedFilmBtn) {
-    refs.gallery.innerHTML = '';
-    getMoviesFromLocalStorage('watched');
-    toggleClass(watchedBtn);
-    toggleClass(queueBtn);
-    queueBtn.removeAttribute('disabled');
-    watchedBtn.setAttribute('disabled', true);
-  }
-});
+  refs.header.addEventListener('click', () => {
+    let watchedBtn = document.querySelector('#watched-film-btn');
+    let queueBtn = document.querySelector('#watched-queue-btn');
+    if (event.target.dataset.queueFilmBtn) {
+      refs.gallery.innerHTML = '';
+      getMoviesFromLocalStorage('queue');
+      toggleClass(queueBtn);
+      toggleClass(watchedBtn);
+      queueBtn.setAttribute('disabled', true);
+      watchedBtn.removeAttribute('disabled');
+    }
+    if (event.target.dataset.watchedFilmBtn) {
+      refs.gallery.innerHTML = '';
+      getMoviesFromLocalStorage('watched');
+      toggleClass(watchedBtn);
+      toggleClass(queueBtn);
+      queueBtn.removeAttribute('disabled');
+      watchedBtn.setAttribute('disabled', true);
+    }
+  });
+}
 
 function toggleClass(selector) {
   ['btn-nonactive-style', 'btn-active-style'].map(cls =>

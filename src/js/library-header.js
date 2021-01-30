@@ -1,5 +1,5 @@
 import itemsTemplate from '../template/myLibraryHeaderTamplate.hbs';
-import createLibraryPage from './myLibrary';
+import fnReloadPage from './fnReloadPage.js';
 
 const headerRef = document.querySelector('#page-header');
 const libraryRef = document.querySelector('.library-ref');
@@ -22,9 +22,12 @@ removeListenerBtnRef.addEventListener('click', () => {
   removeListenerBtnRef.removeEventListener('click', createMarkup);
 });
 
-if (location.hash === '#library'){
-  createMarkup()
+function reloadPage() {
+  if (location.hash === '#library') {
+    createMarkup();
     removeListenerBtnRef.removeEventListener('click', createMarkup);
-  
-};
+    fnReloadPage();
+  }
+}
 
+export default reloadPage;
