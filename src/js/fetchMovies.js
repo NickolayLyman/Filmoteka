@@ -8,14 +8,14 @@ function fetchMovies() {
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}`; // популярные фильмы за неделю
 
 
-    return fetch(url)
-        .then(response => response.json())
-        .then(({ results }) => {
-            fetchGenres().then(({ genres }) => {
-              updateMovieMarkup(results, genres)
-        })
-    })
-    .catch(error => console.log(error));
+  return fetch(url)
+    .then(response => response.json())
+    .then(({ results }) => {
+      fetchGenres().then(({ genres }) => {
+        updateMovieMarkup(results, genres);
+        // .then(data => updateMarkup(data)
+      });
+    });
 }
 
 function fetchGenres() {
@@ -25,22 +25,20 @@ function fetchGenres() {
 }
 
 function updateMovieMarkup(films, genres) {
-
   films.map(({ id, poster_path, title, release_date, genre_ids }) => {
     const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
     const mapGenres = filterGenres.map(({ name }) => name);
-      if (mapGenres.length > 3) {
-          mapGenres.splice(3, 0, 'Other')
-      }
-    const movieGenres = mapGenres.slice(0, 4).join(', ')
+    if (mapGenres.length > 3) {
+      mapGenres.splice(3, 0, 'Other');
+    }
+    const movieGenres = mapGenres.slice(0, 4).join(', ');
     const releaseDate = release_date.split('-')[0];
 
-    const movie = ([{ id, poster_path, title, movieGenres, releaseDate }]);
-      updateMarkup(movie)
-  });
 
+    const movie = [{ id, poster_path, title, movieGenres, releaseDate }];
+    updateMarkup(movie);
+  });
 }
 
-  
 export default fetchMovies;
 
