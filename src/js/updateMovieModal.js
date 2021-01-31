@@ -5,7 +5,7 @@ function updateMovieModal(movie) {
     let markup = '';
 
     if (movie.status !== '404') {
-       movie.popularity = Math.round(movie.popularity);
+        movie.popularity = Math.round(movie.popularity);
         markup = movieModalTpl(movie);
     } 
     refs.modalDivContent.insertAdjacentHTML('beforeend', markup);

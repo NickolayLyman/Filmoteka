@@ -1,5 +1,14 @@
-import updateMarkup from './updateMarkup.js';
+//import updateMarkup from './updateMarkup.js';
 import refs from './refs.js';
+import libraryListOfMovieTml from '../template/libraryListOfMovieTml.hbs';
+
+function updateMarkup(movie) {
+  let markup = '';
+  if (movie.status !== '404') {
+    markup = libraryListOfMovieTml(movie);
+  }
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
+}
 
 async function getMoviesFromLocalStorage(key) {
   if (localStorage.getItem(key)) {
@@ -15,6 +24,7 @@ async function getMoviesFromLocalStorage(key) {
         return movieObject.json();
       }),
     );
+    console.log(movieObjects);
     updateMarkup(movieObjects);
   }
   if (!refs.galleryList.hasChildNodes()) {
