@@ -10,11 +10,13 @@ function fetchMovies() {
 
     return fetch(url)
         .then(response => response.json())
-        .then(({ results }) => {
-            fetchGenres().then(({ genres }) => {
-              updateMovieMarkup(results, genres)
-                // .then(data => updateMarkup(data)
+      .then(({ results }) => {
+        fetchGenres().then(({ genres }) => {
+          updateMovieMarkup(results, genres)
+          // .then(data => updateMarkup(data)
         })
+      })
+      
 
 //   return fetch(url)
 //     .then(response => response.json())
@@ -33,19 +35,21 @@ function fetchGenres() {
   ).then(response => response.json());
 }
 
-function updateMovieMarkup(films, genres) {
+          function updateMovieMarkup(films, genres) {
 
-  films.map(({ id, poster_path, title, release_date, genre_ids }) => {
-    const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
-    const mapGenres = filterGenres.map(({ name }) => name);
-      if (mapGenres.length > 3) {
-          mapGenres.splice(3, 0, 'Other')
-      }
-    const movieGenres = mapGenres.slice(0, 4).join(', ')
-    const releaseDate = release_date.split('-')[0];
+            films.map(({ id, poster_path, title, release_date, genre_ids }) => {
+              const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
+              const mapGenres = filterGenres.map(({ name }) => name);
+              if (mapGenres.length > 3) {
+                mapGenres.splice(3, 0, 'Other')
+              }
+              const movieGenres = mapGenres.slice(0, 4).join(', ');
+              const releaseDate = release_date.split('-')[0];
 
-    const movie = ([{ id, poster_path, title, movieGenres, releaseDate }]);
-      updateMarkup(movie)
+              const movie = ([{ id, poster_path, title, movieGenres, releaseDate }]);
+              updateMarkup(movie)
+            })
+          }
       
     // const markup = `
     // <li class="movie-card">
