@@ -13,19 +13,10 @@ function fetchMovies() {
         .then(({ results }) => {
             fetchGenres().then(({ genres }) => {
               updateMovieMarkup(results, genres)
-                // .then(data => updateMarkup(data)
         })
-
-//   return fetch(url)
-//     .then(response => response.json())
-//     .then(({ results }) => {
-//       fetchGenres().then(({ genres }) => {
-//         updateMarkup(results, genres);
-//       });
-// >>>>>>> develop
-//     })
-//     .catch(error => console.log(error));
-// }
+    })
+    .catch(error => console.log(error));
+}
 
 function fetchGenres() {
   return fetch(
@@ -46,45 +37,10 @@ function updateMovieMarkup(films, genres) {
 
     const movie = ([{ id, poster_path, title, movieGenres, releaseDate }]);
       updateMarkup(movie)
-      
-    // const markup = `
-    // <li class="movie-card">
-    //     <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" 
-    //         alt="${title}" data-movie-id="${id}">
-    //     <h1 class="movie-title">${title}</h1>
-    //     <p class="movie-info">${movieGenres} | ${releaseDate}</p>    
-    // </li>
-    // `;
-    // refs.gallery.insertAdjacentHTML('beforeend', markup);
-   
-// =======
-// function updateMarkup(films, genres) {
-//   films.map(({ id, poster_path, title, release_date, genre_ids }) => {
-//     const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
-//     const mapGenres = filterGenres.map(({ name }) => name);
-//     if (mapGenres.length > 3) {
-//       mapGenres.splice(3, 0, 'Other');
-//     }
-//     const movieGenres = mapGenres.slice(0, 4).join(', ');
-
-//     const markup = `
-//     <li class="movie-card">
-//         <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" 
-//             alt="${title}" data-movie-id="${id}">
-//         <h1 class="movie-title">${title}</h1>
-//         <p class="movie-info">${movieGenres} | ${
-//       release_date.split('-')[0]
-//     }</p>    
-//     </li>
-//     `;
-//     refs.gallery.insertAdjacentHTML('beforeend', markup);
-// >>>>>>> develop
-//   });
+  });
 
 }
 
   
-export default fetchMovies()
+export default fetchMovies;
 
-// export default fetchMovies;
-// >>>>>>> develop
