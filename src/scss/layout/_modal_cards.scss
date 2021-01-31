@@ -2,34 +2,38 @@
   width: 280px;
   font-size: 12px;
   font-weight: 500;
-  padding: 30px;
+  padding: 20px;
 
   @media screen and (min-width: 768px) {
     display: flex;
     width: 626px;
     height: 454px;
+    padding: 30px;
   }
 
   @media screen and (min-width: 1024px) {
     display: flex;
     width: 882px;
     height: 609px;
+    padding: 30px;
   }
 }
 
 .movie-image {
   width: 280px;
   height: 416px;
-  margin-right: 30px;
+  margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
     width: 294px;
     height: 416px;
+    margin-right: 30px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 426px;
     height: 549px;
+    margin-right: 30px;
   }
 
   & img {
@@ -44,6 +48,10 @@
     line-height: 1.17;
     margin-bottom: 20px;
     text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+      font-size: 30px;
+    }
 
     @media screen and (min-width: 1024px) {
       font-size: 30px;
@@ -94,14 +102,16 @@
 
 .movie-about {
   width: 279px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     width: 294px;
+    margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 426px;
+    margin-bottom: 20px;
   }
 
   &-title {
