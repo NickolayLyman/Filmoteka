@@ -88,7 +88,7 @@ function fetchGenres() {
 }
 
   
-export default fetchMovies()
+export default fetchMovies();
 
 // export default fetchMovies;
 // >>>>>>> develop

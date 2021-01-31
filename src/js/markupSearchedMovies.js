@@ -3,6 +3,17 @@ import updateMarkup from './updateMarkup'
 import refs from './refs';
 import {error} from './notifyFunction'
 
+
+const apiKey = 'api_key=50b81e1c6c3b9e5f74d2015b742ff0b0';
+
+function fetchGenres() {
+  return fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?${apiKey}`,
+  ).then(response => response.json());
+}
+
+
+
 function markupSearchedMovie() {
     refs.form.addEventListener('submit', event => {
         event.preventDefault();
@@ -13,7 +24,7 @@ function markupSearchedMovie() {
 
         fetchSearchedMovie(query).then(({results}) => {
         //    const queryUp = query.toUpperCase();
-        results.map
+        //  fetchGenres().then(({name})=>forEach()
             // if (!data.results.title.value.toUpperCase().includes(query)) {
             //     return
             if (results.length===0) {
