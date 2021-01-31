@@ -1,22 +1,36 @@
 .movie-container {
-  display: flex;
+  width: 280px;
   font-size: 12px;
   font-weight: 500;
-  width: 882px;
-  height: 609px;
   padding: 30px;
 
-  // @media screen and (min-width: 768px) {
-  // }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 626px;
+    height: 454px;
+  }
 
-  // @media screen and (min-width: 1200px) {
-  // }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    width: 882px;
+    height: 609px;
+  }
 }
 
 .movie-image {
-  width: 426px;
-  height: 549px;
+  width: 280px;
+  height: 416px;
   margin-right: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 294px;
+    height: 416px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 426px;
+    height: 549px;
+  }
 
   & img {
     border-radius: 5px;
@@ -26,10 +40,14 @@
 
 .movie-description {
   &-title {
-    font-size: 30px;
+    font-size: 20px;
     line-height: 1.17;
     margin-bottom: 20px;
     text-transform: uppercase;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 30px;
+    }
   }
 
   &-block {
@@ -39,8 +57,13 @@
 
   &-list-left-item {
     color: #8c8c8c;
+    width: 78px;
     margin-bottom: 10px;
-    margin-right: 83px;
+    margin-right: 30px;
+
+    @media screen and (min-width: 1024px) {
+      width: 122px;
+    }
   }
 
   &-list-right-item {
@@ -54,6 +77,7 @@
   width: 36px;
   height: 16px;
   padding-top: 1px;
+  padding-bottom: 1px;
 }
 .movie-rating {
   background-color: $accent-color;
@@ -69,8 +93,16 @@
 }
 
 .movie-about {
-  width: 426px;
+  width: 279px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 294px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 426px;
+  }
 
   &-title {
     line-height: 1.33;
