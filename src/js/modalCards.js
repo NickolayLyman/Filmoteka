@@ -1,15 +1,18 @@
 import fetchOneMovie from './fetchOneMovie';
 import updateMovieModal from './updateMovieModal';
-import refs from './refs'
-
+import refs from './refs';
 
 refs.gallery.addEventListener('click', onImgClick);
 
 function onImgClick(e) {
   if (e.target.nodeName !== 'IMG') {
-  return;
+    return;
   }
- 
+
+  if (e.target.dataset.emptyPage) {
+    return;
+  }
+
   const activeImg = e.target;
   const imgSrc = activeImg.dataset.src;
   const movieId = activeImg.dataset.movieId;
@@ -19,9 +22,9 @@ function onImgClick(e) {
 }
 
 function openModal(movieId) {
-  window.addEventListener("keydown", onPressEscape);
-  refs.modalDiv.classList.add("is-open");
-  refs.modalDivContent.innerHTML='';
+  window.addEventListener('keydown', onPressEscape);
+  refs.modalDiv.classList.add('is-open');
+  refs.modalDivContent.innerHTML = '';
   fetchOneMovie(movieId).then(data => updateMovieModal(data));
 }
 
@@ -32,17 +35,17 @@ function openModal(movieId) {
   refs.openImg.src = imgSrc;
 }*/
 
-refs.overlayDiv.addEventListener("click", closeModal);
+refs.overlayDiv.addEventListener('click', closeModal);
 
 function closeModal() {
-  window.removeEventListener("keydown", onPressEscape);
-  
-  refs.modalDiv.classList.remove("is-open");
-  refs.openImg.src = "";
+  window.removeEventListener('keydown', onPressEscape);
+
+  refs.modalDiv.classList.remove('is-open');
+  refs.openImg.src = '';
 }
 
 function onPressEscape(event) {
-  if (event.code === "Escape") {
+  if (event.code === 'Escape') {
     closeModal();
   }
 }
