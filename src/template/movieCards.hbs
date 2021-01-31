@@ -1,10 +1,10 @@
-{{!--
 <!-- Шаблон карточки фильмов -->
 
 {{#each this}}
 <li class="movie-card">
     <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}"
-        data-src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" data-movie-id="{{id}}">
+        data-movie-id="{{id}}">
     <h1 class="movie-title">{{title}}</h1>
+    <p class="movie-info"> {{movieGenres}} | {{releaseDate}}</p>
 </li>
-{{/each}} --}}
+{{/each}}
