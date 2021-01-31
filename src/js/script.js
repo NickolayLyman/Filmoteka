@@ -14,8 +14,8 @@ import '@pnotify/core/dist/BrightTheme.css';
 import renderingContent from './renderingContent.js';
 import markUpSearchMovie from './markupSearchedMovies'
 
-// renderingContent();
-markUpSearchMovie();
+//  renderingContent();
+ markUpSearchMovie();
 createLibraryPage();
 addDataToLocalStorage();
 
