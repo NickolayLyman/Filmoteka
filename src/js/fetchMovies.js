@@ -7,6 +7,7 @@ const apiKey = 'api_key=50b81e1c6c3b9e5f74d2015b742ff0b0';
 function fetchMovies() {
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}`; // популярные фильмы за неделю
 
+
   return fetch(url)
     .then(response => response.json())
     .then(({ results }) => {
@@ -33,11 +34,11 @@ function updateMovieMarkup(films, genres) {
     const movieGenres = mapGenres.slice(0, 4).join(', ');
     const releaseDate = release_date.split('-')[0];
 
+
     const movie = [{ id, poster_path, title, movieGenres, releaseDate }];
     updateMarkup(movie);
   });
 }
+
 export default fetchMovies;
 
-// export default fetchMovies;
-// >>>>>>> develop
