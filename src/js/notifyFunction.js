@@ -10,6 +10,16 @@ function notify(nameOfList) {
     delay: 700,
     overlayClosesPinned: true,
   });
-}
+};
 
-export default notify;
+ function error () {
+  PNotify.error({
+    text: 'There was found nothing for your query',
+    icon: true,
+    styling: 'custom',
+    delay: 2000,
+    overlayClosesPinned: true,
+  })
+}
+  export default notify;
+export { error as error };

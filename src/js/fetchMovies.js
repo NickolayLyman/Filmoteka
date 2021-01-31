@@ -8,6 +8,7 @@ function fetchMovies() {
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}`; // популярные фильмы за неделю
 
 
+
   return fetch(url)
     .then(response => response.json())
     .then(({ results }) => {
@@ -24,6 +25,7 @@ function fetchGenres() {
   ).then(response => response.json());
 }
 
+
 function updateMovieMarkup(films, genres) {
   films.map(({ id, poster_path, title, release_date, genre_ids }) => {
     const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
@@ -35,10 +37,13 @@ function updateMovieMarkup(films, genres) {
     const releaseDate = release_date.split('-')[0];
 
 
+
     const movie = [{ id, poster_path, title, movieGenres, releaseDate }];
     updateMarkup(movie);
   });
 }
 
+
 export default fetchMovies;
+
 
