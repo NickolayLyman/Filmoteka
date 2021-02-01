@@ -24,7 +24,16 @@ async function getMoviesFromLocalStorage(key) {
         return movieObject.json();
       }),
     );
-    updateMarkup(movieObjects);
+
+    console.log(movieObjects)
+    movieObjects.map(({ id, name, poster_path, title, release_date, genres, vote_average }) => {
+      const releaseDate = release_date.split('-')[0];
+      const movieGenres = genres.map(({ name }) => name).join(", ")
+      console.log(genres)
+      const movie = [{ id, name, poster_path, title, releaseDate, movieGenres, vote_average }];
+      updateMarkup(movie);
+    });
+
   }
   if (!refs.galleryList.hasChildNodes()) {
     //console.log('hello');
