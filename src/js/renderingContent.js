@@ -4,7 +4,7 @@ import reloadPage from './library-header.js';
 
 function renderingContent() {
   if (!location.hash) {
-    fetchMovies().then(data => updateMarkup(data));
+    fetchMovies();
   }
   reloadPage();
 }
