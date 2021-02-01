@@ -10,6 +10,7 @@
 }
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: hidden;
 }
 .team-modal {
   position: relative;
@@ -63,7 +64,7 @@
 }
 .team-discription {
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.17;
   text-align: center;
@@ -95,7 +96,7 @@
   }
   .team-name {
     font-family: Roboto;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 500;
     line-height: 1.17;
     margin-bottom: 20px;
