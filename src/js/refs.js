@@ -1,3 +1,13 @@
+const searchBySelector = querySelector => {
+  let el;
+  return () => {
+    if (!el) {
+      el = document.querySelector(querySelector);
+    }
+    return el;
+  };
+};
+
 const refs = {
   gallery: document.querySelector('#gallery'),
   form: document.querySelector('.search-form'),
@@ -12,6 +22,8 @@ const refs = {
   galleryList: document.querySelector('.gallery'),
   watchedBtn: document.querySelector('#watched-film-btn'),
   homeBtn: document.querySelector('.home-ref'),
+  queueBtn: searchBySelector('#watched-queue-btn'),
+  watchedBtn: searchBySelector('#watched-film-btn'),
 };
 
 export default refs;

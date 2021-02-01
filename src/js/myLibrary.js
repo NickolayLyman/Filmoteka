@@ -16,38 +16,46 @@ function createLibraryPage() {
       refs.homeBtn.classList.remove('activ-link-style');
       refs.libraryButton.classList.add('activ-link-style');
     }
-    refs.libraryButton.addEventListener('click', () => {
-      let watchedBtn = document.querySelector('#watched-film-btn');
-      let queueBtn = document.querySelector('#watched-queue-btn');
-      queueBtn.toggleAttribute('disabled');
-      watchedBtn.toggleAttribute('disabled');
-      if (queueBtn.classList.contains('btn-active-style')) {
-        toggleClass(queueBtn);
-        toggleClass(watchedBtn);
-      }
-    });
+
+    if (refs.queueBtn().classList.contains('btn-active-style')) {
+      console.log('hello');
+      toggleClass(refs.queueBtn());
+      toggleClass(refs.watchedBtn());
+      refs.queueBtn().toggleAttribute('disabled');
+      refs.watchedBtn().toggleAttribute('disabled');
+    }
+
   });
 
   refs.header.addEventListener('click', () => {
-    let watchedBtn = document.querySelector('#watched-film-btn');
-    let queueBtn = document.querySelector('#watched-queue-btn');
     if (event.target.dataset.queueFilmBtn) {
-      refs.gallery.innerHTML = '';
-      getMoviesFromLocalStorage('queue');
-      toggleClass(queueBtn);
-      toggleClass(watchedBtn);
-      queueBtn.setAttribute('disabled', true);
-      watchedBtn.removeAttribute('disabled');
+      queueSetStyles();
     }
     if (event.target.dataset.watchedFilmBtn) {
-      refs.gallery.innerHTML = '';
-      getMoviesFromLocalStorage('watched');
-      toggleClass(watchedBtn);
-      toggleClass(queueBtn);
-      queueBtn.removeAttribute('disabled');
-      watchedBtn.setAttribute('disabled', true);
+      watchedSetStyle();
+
     }
   });
+}
+
+function queueSetStyles() {
+  window.location.hash = '#queue'
+  refs.gallery.innerHTML = '';
+  getMoviesFromLocalStorage('queue');
+  toggleClass(refs.queueBtn());
+  toggleClass(refs.watchedBtn());
+  refs.queueBtn().setAttribute('disabled', true);
+  refs.watchedBtn().removeAttribute('disabled');
+}
+
+function watchedSetStyle() {
+  window.location.hash = '#library'
+  refs.gallery.innerHTML = '';
+  getMoviesFromLocalStorage('watched');
+  toggleClass(refs.watchedBtn());
+  toggleClass(refs.queueBtn());
+  refs.queueBtn().removeAttribute('disabled');
+  refs.watchedBtn().setAttribute('disabled', true);
 }
 
 function toggleClass(selector) {
@@ -56,4 +64,9 @@ function toggleClass(selector) {
   );
 }
 
-export default createLibraryPage;
+
+export {
+  createLibraryPage,
+  watchedSetStyle,
+  queueSetStyles,
+}

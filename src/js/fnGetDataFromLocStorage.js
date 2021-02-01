@@ -24,7 +24,6 @@ async function getMoviesFromLocalStorage(key) {
         return movieObject.json();
       }),
     );
-    console.log(movieObjects);
     updateMarkup(movieObjects);
   }
   if (!refs.galleryList.hasChildNodes()) {
