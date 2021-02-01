@@ -1,3 +1,4 @@
+import './js/teamModal';
 import './scss/main.scss';
 import './js/fetchMovies';
 import './js/modalCards'
