@@ -6,9 +6,7 @@
     <p class="movie-info"> {{this.id.name}}</p>
     <div class="info-wrapper">
         <p class="movie-info">
-            {{#each this.genres}}
-            {{name}}&nbsp;&nbsp;
-            {{/each}} | {{this.release_date}}
+            {{this.movieGenres}} | {{this.releaseDate}}
         </p>
         <p class="vote">{{this.vote_average}}</p>
     </div>
