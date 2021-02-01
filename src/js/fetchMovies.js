@@ -36,7 +36,7 @@ function onBtnClick(event) {
    }
   
   refs.gallery.innerHTML = '';
-  fetchMovies()
+  fetchMovies();
 }  
 
 
@@ -81,7 +81,7 @@ films.map(({ id, poster_path, title, release_date, genre_ids }) => {
   updateMarkup(movie);
 });
 }
-fetchMovies();
+// fetchMovies();
 
 export default fetchMovies;
 

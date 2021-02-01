@@ -31,7 +31,7 @@ const refs = {
   btnPage5: document.querySelector('.btn-page5'),
   previousTen: document.querySelector('.previous-ten'),
   nextTen: document.querySelector('.next-ten'),
-  isActive: document.querySelectorAll('.btn-js')
+  isActive: document.querySelectorAll('.btn-js'),
 
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),

@@ -1,5 +1,3 @@
-
-
 import * as templ from './modalCards';
 import * as library from './myLibrary.js';
 import addDataToLocalStorage from './localStorage.js';
