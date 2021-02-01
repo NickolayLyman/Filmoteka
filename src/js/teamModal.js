@@ -1,6 +1,6 @@
 (()=>{
 const btns = {
-    openModalBtn: document.querySelector(".text-company-link"),
+    openModalBtn: document.querySelector("[data-modal-open]"),
     closeModalBtn: document.querySelector(".team-modal-close-button"),
     modal: document.querySelector(".backdrop"),
   };
