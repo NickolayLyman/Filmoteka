@@ -22,6 +22,17 @@ const refs = {
   galleryList: document.querySelector('.gallery'),
   watchedBtn: document.querySelector('#watched-film-btn'),
   homeBtn: document.querySelector('.home-ref'),
+
+  pagination: document.querySelector('.pagination'),
+  btnPage1: document.querySelector('.btn-page1'),
+  btnPage2: document.querySelector('.btn-page2'),
+  btnPage3: document.querySelector('.btn-page3'),
+  btnPage4: document.querySelector('.btn-page4'),
+  btnPage5: document.querySelector('.btn-page5'),
+  previousTen: document.querySelector('.previous-ten'),
+  nextTen: document.querySelector('.next-ten'),
+  isActive: document.querySelectorAll('.btn-js')
+
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),
 };
