@@ -41,6 +41,7 @@ function onBtnClick(event) {
 
 
 function fetchMovies() {
+
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}&page=${currentPage}`; // популярные фильмы за неделю
 
   
@@ -63,6 +64,7 @@ return fetch(
 }
 
 
+
 function updateMovieMarkup(films, genres) {
 films.map(({ id, poster_path, title, release_date, genre_ids }) => {
   const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
@@ -82,3 +84,4 @@ films.map(({ id, poster_path, title, release_date, genre_ids }) => {
 fetchMovies();
 
 export default fetchMovies;
+

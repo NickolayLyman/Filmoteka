@@ -23,7 +23,7 @@ removeListenerBtnRef.addEventListener('click', () => {
 });
 
 function reloadPage() {
-  if (location.hash === '#library') {
+  if (location.hash) {
     createMarkup();
     removeListenerBtnRef.removeEventListener('click', createMarkup);
     fnReloadPage();

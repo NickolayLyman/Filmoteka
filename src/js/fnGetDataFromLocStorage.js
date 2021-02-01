@@ -1,5 +1,14 @@
-import updateMarkup from './updateMarkup.js';
+//import updateMarkup from './updateMarkup.js';
 import refs from './refs.js';
+import libraryListOfMovieTml from '../template/libraryListOfMovieTml.hbs';
+
+function updateMarkup(movie) {
+  let markup = '';
+  if (movie.status !== '404') {
+    markup = libraryListOfMovieTml(movie);
+  }
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
+}
 
 async function getMoviesFromLocalStorage(key) {
   if (localStorage.getItem(key)) {
@@ -15,7 +24,16 @@ async function getMoviesFromLocalStorage(key) {
         return movieObject.json();
       }),
     );
-    updateMarkup(movieObjects);
+
+    console.log(movieObjects)
+    movieObjects.map(({ id, name, poster_path, title, release_date, genres, vote_average }) => {
+      const releaseDate = release_date.split('-')[0];
+      const movieGenres = genres.map(({ name }) => name).join(", ")
+      console.log(genres)
+      const movie = [{ id, name, poster_path, title, releaseDate, movieGenres, vote_average }];
+      updateMarkup(movie);
+    });
+
   }
   if (!refs.galleryList.hasChildNodes()) {
     //console.log('hello');
