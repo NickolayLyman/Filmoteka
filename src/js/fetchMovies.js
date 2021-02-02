@@ -12,15 +12,19 @@ function setBtnActiveStyle(){
   if(btnEvent.classList.contains("btn")){
   btnEvent.classList.add("active")
   }
-  const activeBtn = event.target.dataset.index;
-  console.log('activeBtn', activeBtn);
-  currentPage = Number(activeBtn)
 }
 
 refs.pagination.addEventListener("click", onBtnClick);
 
 function onBtnClick(event) {
+  console.log(event.target)
+  if(event.target.tagName==='BUTTON'){
+  const activeBtn = event.target.dataset.index;
+  console.log('activeBtn', activeBtn);
+  currentPage = Number(activeBtn)
   setBtnActiveStyle();
+  
+
   if (currentPage > 2) { 
     refs.btnPage1.dataset.index = `${currentPage - 2}`
     refs.btnPage1.textContent = `${currentPage - 2}` 
@@ -43,7 +47,7 @@ function onBtnClick(event) {
    }
   
   refs.gallery.innerHTML = '';
-  fetchMovies();
+  fetchMovies();}
 }  
 
 
