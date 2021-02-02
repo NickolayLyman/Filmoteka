@@ -39,6 +39,10 @@
   @media screen and (max-width: 480px) {
     display: none;
   }
+  &:hover{
+    transition: 3s;
+     color: $accent-color;
+  }
 }
 .home-ref {
   margin-right: 40px;
@@ -48,6 +52,11 @@
   line-height: 1.2;
   color: #ffffff;
   text-transform: uppercase;
+   &:hover,
+  :focus {
+    transition: 2s;
+    color: #ff6b08;
+  }
 }
 
 .activ-link-style {
@@ -61,6 +70,11 @@
   line-height: 1.2;
   color: #ffffff;
   text-transform: uppercase;
+   &:hover,
+  :focus {
+    transition: 2s;
+    color: #ff6b08;
+  }
 }
 
 .search-form {

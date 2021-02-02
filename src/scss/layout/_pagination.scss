@@ -13,11 +13,12 @@
   left: 492px;
   top: 1720px;
 
-  background: #fff;
+  background: #f7f7f7;
   color: #000;
   border-radius: 5px;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .btn-page {
@@ -30,6 +31,7 @@
   border-radius: 5px;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .btn-page1:hover,
@@ -38,6 +40,7 @@
 .btn-page4:hover,
 .btn-page5:hover,
 .btn-page:hover {
+  transition: 1s;
   background: #ff6b08;
   transform: scale(1.07);
 }
@@ -51,6 +54,5 @@
 
 .active {
   background: #ff6b08;
-  color: #ffff;
   transform: scale(1.07);
 }

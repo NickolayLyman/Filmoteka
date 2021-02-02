@@ -45,6 +45,7 @@
   background-color: transparent;
   &:hover,
   :focus {
+    transition: 1s;
     background-color: $accent-color;
     border-color: $accent-color;
   }

@@ -36,4 +36,9 @@
   color: #545454;
   display: flex;
   padding-left: 5px;
+  cursor: pointer;
+  &:hover{
+    transition: 1s;
+     color: $accent-color;
+  }
 }
