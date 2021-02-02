@@ -8,6 +8,7 @@ function updateMarkup(movie) {
   if (movie.status !== '404') {
     markup = movieCardsTpl(movie);
   }
+
   refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 
