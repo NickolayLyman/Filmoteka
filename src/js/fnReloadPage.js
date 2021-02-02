@@ -12,9 +12,11 @@ function fnReloadPage() {
     refs.libraryButton.classList.add('activ-link-style');
   }
   if (window.location.hash === '#library') {
+    refs.pagination.setAttribute("hidden", "true")
     getMoviesFromLocalStorage('watched');
   }
   if (window.location.hash === '#queue') {
+    refs.pagination.setAttribute("hidden", "true")
     library.queueSetStyles()
   }
 
