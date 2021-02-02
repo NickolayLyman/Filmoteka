@@ -2,6 +2,10 @@ import refs from './refs';
 import updateMarkup from './updateMarkup';
 import movieCardsTpl from '../template/movieCards.hbs';
 
+import { Spinner } from 'spin.js';
+import opts from './spinner'
+
+
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 let currentPage = 1;
 
@@ -56,6 +60,8 @@ function fetchMovies() {
 
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}&page=${currentPage}`; // популярные фильмы за неделю
 
+var target = document.getElementById('gallery');
+var spinner = new Spinner(opts).spin(target);
 
 
 
@@ -65,6 +71,8 @@ function fetchMovies() {
       fetchGenres().then(({ genres }) => {
         updateMovieMarkup(results, genres);
         // .then(data => updateMarkup(data)
+      }).finally(() => {
+        spinner.stop();
       });
     });
 }
