@@ -18,22 +18,16 @@ function onImgClick(e) {
   const movieId = activeImg.dataset.movieId;
 
   openModal(movieId);
-  //openImage(imgSrc);
 }
 
 function openModal(movieId) {
   window.addEventListener('keydown', onPressEscape);
   refs.modalDiv.classList.add('is-open');
+  refs.body.classList.add('scroll-hidden');
+  refs.upBtn.hidden = true;
   refs.modalDivContent.innerHTML = '';
   fetchOneMovie(movieId).then(data => updateMovieModal(data));
 }
-
-/*function openImage(imgSrc) {
-  window.addEventListener("keydown", onPressEscape);
-  refs.modalDiv.classList.add("is-open");
-
-  refs.openImg.src = imgSrc;
-}*/
 
 refs.overlayDiv.addEventListener('click', closeModal);
 
@@ -41,7 +35,8 @@ function closeModal() {
   window.removeEventListener('keydown', onPressEscape);
 
   refs.modalDiv.classList.remove('is-open');
-  refs.openImg.src = '';
+  refs.body.classList.remove('scroll-hidden');
+  refs.upBtn.hidden = false;
 }
 
 function onPressEscape(event) {
