@@ -5,15 +5,22 @@ import movieCardsTpl from '../template/movieCards.hbs';
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 let currentPage = 1;
 
-refs.pagination.addEventListener("click", onBtnClick);
-
-
-function onBtnClick(event) {
-
+function setBtnActiveStyle(){
+  let btnEvent = event.target;
+  let btns = document.querySelectorAll('.btn');
+  btns.forEach((el) => el.classList.remove("active"));
+  if(btnEvent.classList.contains("btn")){
+  btnEvent.classList.add("active")
+  }
   const activeBtn = event.target.dataset.index;
   console.log('activeBtn', activeBtn);
   currentPage = Number(activeBtn)
-  
+}
+
+refs.pagination.addEventListener("click", onBtnClick);
+
+function onBtnClick(event) {
+  setBtnActiveStyle();
   if (currentPage > 2) { 
     refs.btnPage1.dataset.index = `${currentPage - 2}`
     refs.btnPage1.textContent = `${currentPage - 2}` 
