@@ -67,11 +67,14 @@
 
 .movie-card:hover {
   transform: scale(1.03);
+  transition: 1s linear;
 }
 
-// .movie-poster {
-//   border-radius: 5px;
-// }
+ .movie-poster {
+  cursor: pointer;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.6));
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ }
 
 .movie-title,
 .movie-info {
