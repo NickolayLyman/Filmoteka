@@ -105,3 +105,6 @@ function updateMovieMarkup(films, genres) {
 
 export default fetchMovies;
 
+export { fetchGenres as fetchGenres, updateMovieMarkup as updateMovieMarkup };
+
+
