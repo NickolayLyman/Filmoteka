@@ -70,6 +70,20 @@
       </div>
 
     </section>
+
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="btn-page previous-ten" data-index="1">&larr;</button>
+      <span class="btn-dots">...</span>
+      <button class="btn-page1 active btn" data-index="1">1</button>
+      <button class="btn-page2 btn" data-index="2">2</button>
+      <button class="btn-page3 btn" data-index="3">3</button>
+      <button class="btn-page4 btn" data-index="4">4</button>
+      <button class="btn-page5 btn" data-index="5">5</button>
+      <span class="btn-dots">...</span>
+      <button class="btn-page next-ten" data-index="10">&rarr;</button>
+    </div>
     <div class="up-btn-wrapper visually-hidden" data-up-btn>
       <svg class="up-btn-icon">
         <use href="./img/sprite.svg#icon-up-arrow"></use>
@@ -83,11 +97,77 @@
       <p class="copy-right-text">&copy;2020 | All Rights Reserved | </p>
       <p class="text-company">Developed with <svg class="icon-heart" width="14" height="12.88">
           <use href="./img/sprite.svg#icon-heart"></use>
-        </svg>by <a class="text-company-link">GoIT Students</a></p>
+        </svg>by <span data-modal-open class="text-company-link">GoIT Students</span></p>
     </div>
-
   </footer>
-  
+
+
+  <!-- TeamModal -->
+  <div class="backdrop is-hidden">
+    <div class="team-modal">
+      <button type="button" class="team-modal-close-button">
+        <svg class="close-icon">
+          <use href="./img/sprite.svg#close-button"></use>
+        </svg>
+      </button>
+      <ul class="team-card-list">
+        <li class="team-card-list-item">
+        <img src="./img/teamMates/Nickolay.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Nikolai <br>Lyman</h2>
+        <p class="team-discription">Team Lead</p>
+        <a class="team-contact" href="mailto:kolyalyman@gmail.com">kolyalyman@gmail.com</a>
+      </li>
+      <li class="team-card-list-item">
+        <img src="./img/teamMates/elena_mazurenko.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Elena <br>Mazurenko</h2>
+        <p class="team-discription">Scrum Master</p>
+        <a class="team-contact" href="mailto:mazurenko_elena@i.ua">mazurenko_elena@i.ua</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Maks_Zyza.jpeg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Maksym <br>Zyza</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:mmaksymziza@gmail.com">mmaksymziza@gmail.com</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Inga.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Inga <br>Grigorieva</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:ingagrigorieva0402@gmail.com">ingagrigorieva0402@gmail.com</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Vitalik.jpeg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Vitalii <br>Skubii</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:svorder@ukr.net">svorder@ukr.net</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Luda.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Liudmyla <br>Kostova</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:kostolu@ukr.net">kostolu@ukr.net</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Evgenii.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Evhen <br>Olefir</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:evgeniy.olefir@gmail.com">evgeniy.olefir@gmail.com</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/elena_najdenova.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Elena <br>Najdenova</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:najdenova.elena@gmail.com">najdenova.elena@gmail.com</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Olha.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Olha <br>Uzun</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:ol4enok20101@gmail.com">ol4enok20101@gmail.com</a>
+      </li><li class="team-card-list-item">
+        <img src="./img/teamMates/Oleksiy.jpg" alt="teammate photo" class="team-card-list-img">
+        <h2 class="team-name">Oleksiy <br>Kondakov</h2>
+        <p class="team-discription">Developer</p>
+        <a class="team-contact" href="mailto:kondakov.o.91@gmail.com">kondakov.o.91@gmail.com</a>
+      </li>
+      </ul>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
