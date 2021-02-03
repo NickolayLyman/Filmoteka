@@ -1,5 +1,7 @@
 import refs from './refs.js';
 import getMoviesFromLocalStorage from './fnGetDataFromLocStorage.js';
+import deleteMovie from "./fnDelMovie.js"
+
 
 refs.homeBtn.addEventListener('click', () => {
   if (refs.libraryButton.classList.contains('activ-link-style')) {
@@ -34,6 +36,7 @@ function createLibraryPage() {
     }
     if (event.target.dataset.watchedFilmBtn) {
       watchedSetStyle();
+
     }
   });
 }

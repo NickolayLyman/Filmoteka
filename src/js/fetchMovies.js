@@ -5,7 +5,6 @@ import movieCardsTpl from '../template/movieCards.hbs';
 import { Spinner } from 'spin.js';
 import opts from './spinner'
 
-
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 let currentPage = 1;
 let btns = document.querySelectorAll('.btn');
