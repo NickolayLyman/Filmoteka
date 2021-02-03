@@ -17,6 +17,7 @@
 }
  .movie-poster-lib{
    position: relative;
+   border-radius: 5px;
   cursor: pointer;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.6));
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -115,8 +116,13 @@
 
  .movie-poster {
   cursor: pointer;
+  border-radius: 5px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.6));
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  &:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
+  }
  }
 
 .movie-title,
