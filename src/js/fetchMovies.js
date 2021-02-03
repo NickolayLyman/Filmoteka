@@ -57,7 +57,7 @@ function onBtnClick(event) {
 
     previous.dataset.index = currentPage;
 
-    if (event.target.classList.contains("previous") && currentPage > 1) {
+    if (event.target.classList.contains("previous") && currentPage > 5) {
       next.dataset.index = Number(next.dataset.index) - 5;
       previous.dataset.index = next.dataset.index
       btn1.textContent = Number(btn1.textContent) - 5;
