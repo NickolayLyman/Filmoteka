@@ -36,6 +36,7 @@ const refs = {
 
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),
+  delMovieBtn: document.querySelectorAll('#delMovieBtn')
 };
 
 export default refs;

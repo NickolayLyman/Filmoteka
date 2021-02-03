@@ -1,5 +1,4 @@
 import fetchMovies from './fetchMovies';
-import updateMarkup from './updateMarkup';
 import reloadPage from './library-header.js';
 
 function renderingContent() {
