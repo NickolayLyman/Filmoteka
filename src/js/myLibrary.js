@@ -8,6 +8,7 @@ refs.homeBtn.addEventListener('click', () => {
   }
 });
 
+
 function createLibraryPage() {
   refs.libraryButton.addEventListener('click', () => {
     refs.pagination.setAttribute("hidden", "true")
@@ -25,7 +26,6 @@ function createLibraryPage() {
       refs.queueBtn().toggleAttribute('disabled');
       refs.watchedBtn().toggleAttribute('disabled');
     }
-
   });
 
   refs.header.addEventListener('click', () => {
@@ -34,7 +34,6 @@ function createLibraryPage() {
     }
     if (event.target.dataset.watchedFilmBtn) {
       watchedSetStyle();
-
     }
   });
 }

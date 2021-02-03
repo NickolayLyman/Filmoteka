@@ -91,8 +91,8 @@ function fetchMovies() {
 
   const url = `https://api.themoviedb.org/3/trending/movie/week?${apiKey}&page=${currentPage}`; // популярные фильмы за неделю
 
-var target = document.getElementById('gallery');
-var spinner = new Spinner(opts).spin(target);
+  var target = document.getElementById('gallery');
+  var spinner = new Spinner(opts).spin(target);
 
 
 
