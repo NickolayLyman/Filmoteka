@@ -24,9 +24,16 @@ refs.pagination.addEventListener("click", onBtnClick);
 
 function onBtnClick(event) {
 
+  if (event.target.tagName === 'BUTTON') {
 
-  const activeBtn = event.target.dataset.index;
-  currentPage = Number(activeBtn)
+    const activeBtn = event.target.dataset.index;
+    console.log('activeBtn', activeBtn);
+    currentPage = Number(activeBtn);
+
+
+  
+  
+ 
   
     const btn1 = refs.btnPage1;
     const btn2 = refs.btnPage2;
@@ -74,6 +81,7 @@ function onBtnClick(event) {
   setBtnActiveStyle(event)
   refs.gallery.innerHTML = '';
   fetchMovies();
+}
 }  
 
 
