@@ -10,6 +10,7 @@ refs.homeBtn.addEventListener('click', () => {
 
 function createLibraryPage() {
   refs.libraryButton.addEventListener('click', () => {
+    refs.pagination.setAttribute("hidden", "true")
     refs.gallery.innerHTML = '';
     getMoviesFromLocalStorage('watched');
     if (refs.homeBtn.classList.contains('activ-link-style')) {

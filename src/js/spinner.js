@@ -1,5 +1,3 @@
-import {Spinner} from 'spin.js';
-
 var opts = {
   lines: 15, // The number of lines to draw
   length: 0, // The length of each line
@@ -13,7 +11,7 @@ var opts = {
   direction: 1, // 1: clockwise, -1: counterclockwise
   color: '#FF6B08', // CSS color or array of colors
   fadeColor: 'transparent', // CSS color or array of colors
-  top: '51%', // Top position relative to parent
+  top: '46%', // Top position relative to parent
   left: '50%', // Left position relative to parent
   shadow: '0 0 1px transparent', // Box-shadow for the lines
   zIndex: 2000000000, // The z-index (defaults to 2e9)
@@ -21,6 +19,8 @@ var opts = {
   position: 'absolute', // Element positioning
 };
 
-var target = document.getElementById('galery');
-var spinner = new Spinner(opts).spin(target);
-spinner.stop();
+// var target = document.getElementById('gallery');
+// var spinner = new Spinner(opts).spin(target);
+// spinner.stop();
+
+export default opts
