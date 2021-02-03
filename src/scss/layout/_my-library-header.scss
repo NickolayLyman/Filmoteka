@@ -31,7 +31,9 @@
   text-transform: uppercase;
   border: 1px solid #fff;
   border-radius: 5px;
+  transition: 1s;
   &:not(:last-child) {
+    transition: 1s;
     margin-right: 15px;
   }
   //   &:hover,
