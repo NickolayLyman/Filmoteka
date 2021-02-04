@@ -4,6 +4,7 @@ import movieCardsTpl from '../template/movieCards.hbs';
 
 import { Spinner } from 'spin.js';
 import opts from './spinner'
+import emptyJpg from '../img/empty-img.jpg'
 
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 let currentPage = 1;
@@ -114,6 +115,7 @@ function fetchGenres() {
 
 
 function updateMovieMarkup(films, genres) {
+  console.log('popular', films)
   films.map(({ id, poster_path, title, release_date, genre_ids }) => {
     const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
     const mapGenres = filterGenres.map(({ name }) => name);
@@ -124,8 +126,12 @@ function updateMovieMarkup(films, genres) {
     const releaseDate = release_date.split('-')[0];
 
 
+    let img = poster_path
+      ? `https://image.tmdb.org/t/p/w500${poster_path}`
+      : emptyJpg;
 
-    const movie = [{ id, poster_path, title, movieGenres, releaseDate }];
+
+    const movie = [{ id, img, title, movieGenres, releaseDate }];
     updateMarkup(movie);
   });
 }
