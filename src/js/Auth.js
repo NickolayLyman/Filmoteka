@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 import firebaseConfig from './firebaseConfig';
 import refs from './refs';
 import renderingContent from './renderingContent';
@@ -29,8 +30,8 @@ function initApp() {
             refs.signOut.hidden = false;
             refs.signIn.hidden = true;
 
-            //refs.userInfo.innerHTML = `<img src="${photoURL}" > ${displayName}`;
-            console.log(`Current user: ${displayName}`);
+            //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
+          console.log(`Current user: ${displayName}`);
         } else {
             // User is signed out.
             refs.signOut.hidden = true;
@@ -55,8 +56,24 @@ function googleSignIn() {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      const userId = user.uid;
+      const name = user.displayName;
+      const email = user.email;
+      const imageUrl = user.photoURL;
+
       console.log(user);
       console.log("Success!");
+
+      //Проверяет существует ли пользователь в БД, если нет - добавляет в БД
+      checkUserID().then((data) => {
+        if (data.exists()) {
+          console.log('User exist in database');
+        }
+        else {
+          console.log('User NOT exist in database');
+          writeUserData(userId, name, email, imageUrl);
+        }
+      });
 
   }).catch((error) => {
       // Handle Errors here.
@@ -86,53 +103,47 @@ function googleSignOut(){
   // [END auth_sign_out]
   }
 
-  // function onSignIn(googleUser) {
-  //     console.log('Google Auth Response', googleUser);
-  //     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-  //     var unsubscribe = firebase.auth().onAuthStateChanged(function (firebaseUser) {
-  //       unsubscribe();
-  //       // Check if we are already signed-in Firebase with the correct user.
-  //       if (!isUserEqual(googleUser, firebaseUser)) {
-  //         // Build Firebase credential with the Google ID token.
-  //         var credential = firebase.auth.GoogleAuthProvider.credential(
-  //           googleUser.getAuthResponse().id_token);
+const database = firebase.database();
 
-  //         // Sign in with credential from the Google user.
-  //         firebase.auth().signInWithCredential(credential).catch(function (error) {
-  //           // Handle Errors here.
-  //           var errorCode = error.code;
-  //           var errorMessage = error.message;
-  //           // The email of the user's account used.
-  //           var email = error.email;
-  //           // The firebase.auth.AuthCredential type that was used.
-  //           var credential = error.credential;
-  //           if (errorCode === 'auth/account-exists-with-different-credential') {
-  //             alert('You have already signed up with a different auth provider for that email.');
-  //             // If you are using multiple auth providers on your app you should handle linking
-  //             // the user's accounts here.
-  //           } else {
-  //             console.error(error);
-  //           }
-  //         });
-  //       } else {
-  //         console.log('User already signed-in Firebase.');
-  //       }
-  //     });
-  //   }
+function checkUserID() {
+  const userId = firebase.auth().currentUser.uid;
+  return firebase.database().ref('/users/' + userId).once('value');
+}
 
-  //   /**
-  //    * Check that the given Google user is equals to the given Firebase user.
-  //    */
-  //   function isUserEqual(googleUser, firebaseUser) {
-  //     if (firebaseUser) {
-  //       var providerData = firebaseUser.providerData;
-  //       for (var i = 0; i < providerData.length; i++) {
-  //         if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-  //           providerData[i].uid === googleUser.getBasicProfile().getId()) {
-  //           // We don't need to reauth the Firebase connection.
-  //           return true;
-  //         }
-  //       }
-  //     }
-  //     return false;
-  //   }
+function writeUserData(userId, name, email, imageUrl) {
+  database.ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  }, (error) => {
+      if (error) {
+        console.log('Failed!');
+      } else {
+        console.log('Data saved successfully!');
+      }
+    });
+}
+
+function readUserData(userId, ) {
+  return firebase.database().ref('/users/' + userId).once('value').then((data) => data.val().name);
+}
+
+
+
+//Записывает данные из local storage в базу данных
+function addToLibrary(userID, watched, queue){
+  database.ref('users/' + userId).set({
+    wathched: watched,
+    queue: watched,
+  }, (error) => {
+      if (error) {
+        console.log('Failed!');
+      } else {
+        console.log('Data saved successfully!');
+      }
+    });
+}
+
+function removeFromLibrary(userID, watched, queue) {
+  
+}
