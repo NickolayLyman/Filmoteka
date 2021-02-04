@@ -20,18 +20,15 @@ function initApp() {
         if (user) {
             // User is signed in.
             const displayName = user.displayName;
-            const email = user.email;
-            const emailVerified = user.emailVerified;
             const photoURL = user.photoURL;
-            const isAnonymous = user.isAnonymous;
             const uid = user.uid;
-            const providerData = user.providerData;
             
             refs.signOut.hidden = false;
             refs.signIn.hidden = true;
 
             //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
-          console.log(`Current user: ${displayName}`);
+            console.log(`Current user: ${displayName}`);
+            readUserData(uid);  // загружает данные из БД
         } else {
             // User is signed out.
             refs.signOut.hidden = true;
@@ -68,12 +65,21 @@ function googleSignIn() {
       checkUserID().then((data) => {
         if (data.exists()) {
           console.log('User exist in database');
+          readUserData(userId);  // загружает данные из БД
         }
         else {
           console.log('User NOT exist in database');
           writeUserData(userId, name, email, imageUrl);
         }
       });
+
+      //Тут нужно вытянуть данные из localstorage и подставить в функцию
+      //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
+      let wathched = '11,22,33,44';
+      let queue = '99,88,77,66';
+
+      // Функция будет перезаписывать данные. Функцию удаления фильмов с БД можно не писать
+      addDataToRemoteStorage(userId, wathched, queue); 
 
   }).catch((error) => {
       // Handle Errors here.
@@ -89,27 +95,25 @@ function googleSignIn() {
 }
 
 function googleSignOut(){
-    // [START auth_sign_out]
     firebase.auth().signOut().then(() => {
-      // Sign-out successful.
       console.log('Sign-out successful.');
       window.location.href = 'index.html';
       renderingContent();
         //refs.userInfo.innerHTML = '';
     }).catch((error) => {
-      // An error happened.
         console.log('An error happened');
     });
-  // [END auth_sign_out]
   }
 
 const database = firebase.database();
 
+// Получает данные пользователя с текущим uid из БД
 function checkUserID() {
   const userId = firebase.auth().currentUser.uid;
   return firebase.database().ref('/users/' + userId).once('value');
 }
 
+// Записывает в БД основную инфу о пользователе, только при первом SignIn(при регистрации)
 function writeUserData(userId, name, email, imageUrl) {
   database.ref('users/' + userId).set({
     username: name,
@@ -119,31 +123,29 @@ function writeUserData(userId, name, email, imageUrl) {
       if (error) {
         console.log('Failed!');
       } else {
-        console.log('Data saved successfully!');
+        console.log('User data saved successfully!');
       }
     });
 }
 
-function readUserData(userId, ) {
-  return firebase.database().ref('/users/' + userId).once('value').then((data) => data.val().name);
+//Считывает данные из БД firebase
+function readUserData(userId) {
+  return firebase.database().ref('/users/' + userId).once('value').then((data) => console.log(data.val()));
 }
 
 
+//**Доделать**  Должна записывать данные из local storage в базу данных
+function addDataToRemoteStorage(userId, watched, queue) {
 
-//Записывает данные из local storage в базу данных
-function addToLibrary(userID, watched, queue){
-  database.ref('users/' + userId).set({
+  database.ref('users/' + userId).update({
     wathched: watched,
-    queue: watched,
+    queue: queue,
   }, (error) => {
       if (error) {
         console.log('Failed!');
       } else {
-        console.log('Data saved successfully!');
+        console.log('Data added successfully!');
       }
     });
 }
 
-function removeFromLibrary(userID, watched, queue) {
-  
-}
