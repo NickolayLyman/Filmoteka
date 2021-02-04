@@ -1,6 +1,8 @@
 import fetchOneMovie from './fetchOneMovie';
 import updateMovieModal from './updateMovieModal';
 import refs from './refs';
+import emptyJpg from '../img/empty-img.jpg'
+
 
 refs.gallery.addEventListener('click', onImgClick)
 
@@ -30,7 +32,14 @@ function openModal(movieId) {
   refs.upBtn.hidden = true;
   refs.modalDivContent.innerHTML = '';
   fetchOneMovie(movieId)
-    .then(data => updateMovieModal(data))
+    .then(({ id, poster_path, title, release_date, genre_ids,
+      vote_average, vote_count, original_title, genres, overview, popularity }) => {
+      let img = poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : emptyJpg;
+      let movie = ({ id, title, release_date, genre_ids, img, vote_average, vote_count, original_title, genres, overview, popularity });
+      updateMovieModal(movie)
+    })
     .then(() => checkMovieInStorage(movieId));
 }
 
