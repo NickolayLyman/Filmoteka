@@ -68,7 +68,7 @@ function checkMovieInStorage(movieId) {
     }
   }
 }
-
+refs.btnClose.addEventListener("click", closeModal);
 refs.overlayDiv.addEventListener('click', closeModal);
 
 function closeModal() {
