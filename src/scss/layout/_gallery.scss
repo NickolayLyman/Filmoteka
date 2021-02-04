@@ -100,6 +100,7 @@
 }
 
  .movie-poster {
+  max-height: 270px;
   cursor: pointer;
   border-radius: 5px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.6));

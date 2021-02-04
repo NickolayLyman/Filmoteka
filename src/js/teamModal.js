@@ -1,5 +1,5 @@
-(()=>{
-const btns = {
+(() => {
+  const btns = {
     openModalBtn: document.querySelector("[data-modal-open]"),
     closeModalBtn: document.querySelector(".team-modal-close-button"),
     modal: document.querySelector(".backdrop"),
@@ -18,15 +18,16 @@ const btns = {
     if (event.srcElement.className === "team-modal") {
       return
     } else{
+
     btns.closeModalBtn.removeEventListener("click", closeModal);
     btns.modal.classList.add("is-hidden");
     btns.modal.removeEventListener("click", closeModal);
   window.removeEventListener('keydown', onPressEscape);}
   
   }
-    function onPressEscape(event) {
-  if (event.code === 'Escape') {
-    closeModal();
+  function onPressEscape(event) {
+    if (event.code === 'Escape') {
+      closeModal();
+    }
   }
-}
 })();

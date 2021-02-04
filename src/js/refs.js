@@ -1,7 +1,7 @@
 const searchBySelector = querySelector => {
   let el;
-  return () => {
-    if (!el) {
+  return (force = false) => {
+    if (!el || force) {
       el = document.querySelector(querySelector);
     }
     return el;
@@ -16,6 +16,7 @@ const refs = {
   modalDiv: document.querySelector('.js-lightbox'),
   lightbox: document.querySelector('.lightbox'),
   overlayDiv: document.querySelector('.lightbox__overlay'),
+  btnClose: document.querySelector('.lightbox__btn'),
   modalDivContent: document.querySelector('.lightbox__content'),
   libraryButton: document.querySelector('.library-ref'),
   container: document.getElementById('.container'),
@@ -32,10 +33,17 @@ const refs = {
   btnPage5: document.querySelector('.btn-page5'),
   previous: document.querySelector('.previous'),
   next: document.querySelector('.next'),
+  dots1: document.querySelector('.js-dots1'),
+  dots2: document.querySelector('.js-dots2'),
 
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),
-  delMovieBtn: document.querySelectorAll('#delMovieBtn')
+  delMovieBtn: document.querySelectorAll('#delMovieBtn'),
+  addToWatched: searchBySelector(".add-to-watched"),
+  addToQueue: searchBySelector('.add-to-queue'),
+
+  signIn: document.querySelector('#sign_in'),
+  signOut: document.querySelector('#sign_out'),
 };
 
 export default refs;
