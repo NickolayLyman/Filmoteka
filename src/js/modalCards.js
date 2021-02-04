@@ -28,7 +28,7 @@ function openModal(movieId) {
   refs.modalDivContent.innerHTML = '';
   fetchOneMovie(movieId).then(data => updateMovieModal(data));
 }
-
+refs.btnClose.addEventListener("click", closeModal);
 refs.overlayDiv.addEventListener('click', closeModal);
 
 function closeModal() {
