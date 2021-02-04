@@ -37,7 +37,10 @@ const refs = {
   watchedBtn: searchBySelector('#watched-film-btn'),
   delMovieBtn: document.querySelectorAll('#delMovieBtn'),
   addToWatched: searchBySelector(".add-to-watched"),
-  addToQueue: searchBySelector('.add-to-queue')
+  addToQueue: searchBySelector('.add-to-queue'),
+
+  signIn: document.querySelector('#sign_in'),
+  signOut: document.querySelector('#sign_out'),
 };
 
 export default refs;
