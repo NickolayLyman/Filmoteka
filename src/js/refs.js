@@ -1,7 +1,7 @@
 const searchBySelector = querySelector => {
   let el;
-  return () => {
-    if (!el) {
+  return (force = false) => {
+    if (!el || force) {
       el = document.querySelector(querySelector);
     }
     return el;
@@ -35,7 +35,9 @@ const refs = {
 
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),
-  delMovieBtn: document.querySelectorAll('#delMovieBtn')
+  delMovieBtn: document.querySelectorAll('#delMovieBtn'),
+  addToWatched: searchBySelector(".add-to-watched"),
+  addToQueue: searchBySelector('.add-to-queue')
 };
 
 export default refs;
