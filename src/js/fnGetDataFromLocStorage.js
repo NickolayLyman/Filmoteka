@@ -39,12 +39,12 @@ async function getMoviesFromLocalStorage(key) {
 
   addEmptyStylePage();
 
-  refs.gallery.addEventListener("click", () => {
+  refs.gallery.addEventListener("click", (event) => {
     if (event.target.classList.contains("delMovieBtn")) {
       const movieData = event.target;
-      deleteMovie(movieData)
+      deleteMovie(movieData);
     }
-  })
+  });
 }
 
 export default getMoviesFromLocalStorage;

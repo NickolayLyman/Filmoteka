@@ -24,7 +24,7 @@ function createLibraryPage() {
     if (refs.queueBtn().classList.contains('btn-active-style')) {
       console.log('hello');
       toggleClass(refs.queueBtn());
-      toggleClass(refs.watchedBtn());
+      toggleClass(refs.watchedBtn()); l
       refs.queueBtn().toggleAttribute('disabled');
       refs.watchedBtn().toggleAttribute('disabled');
     }
@@ -66,6 +66,11 @@ function toggleClass(selector) {
     selector.classList.toggle(cls),
   );
 }
+
+/** Example of usage: toggleClasses(myButton, 'btn-red', 'btn-green'); */
+const toggleClasses = (element, ...classes) => {
+  classes.map(cls => element.classList.toggle(cls));
+};
 
 
 export {
