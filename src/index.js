@@ -6,3 +6,4 @@ import './js/modalCards'
 import './js/script.js';
 import './js/library-header';
 import './js/scrollBtn';
+import './js/Auth';
