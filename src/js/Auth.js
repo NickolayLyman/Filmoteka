@@ -29,6 +29,13 @@ function initApp() {
             //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
             console.log(`Current user: ${displayName}`);
             readUserData(uid);  // загружает данные из БД
+          
+          let wathched = '11,22,33,44';
+          let queue = '99,88,77,66';
+
+        // Функция будет перезаписывать данные. Функцию удаления фильмов с БД можно не писать
+        //addDataToRemoteStorage(uid, wathched, queue); 
+
         } else {
             // User is signed out.
             refs.signOut.hidden = true;
@@ -75,11 +82,6 @@ function googleSignIn() {
 
       //Тут нужно вытянуть данные из localstorage и подставить в функцию
       //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
-      let wathched = '11,22,33,44';
-      let queue = '99,88,77,66';
-
-      // Функция будет перезаписывать данные. Функцию удаления фильмов с БД можно не писать
-      addDataToRemoteStorage(userId, wathched, queue); 
 
   }).catch((error) => {
       // Handle Errors here.
@@ -94,7 +96,7 @@ function googleSignIn() {
   });
 }
 
-function googleSignOut(){
+function googleSignOut() {
     firebase.auth().signOut().then(() => {
       console.log('Sign-out successful.');
       window.location.href = 'index.html';
