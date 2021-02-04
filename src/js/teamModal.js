@@ -6,18 +6,24 @@
   };
 
   btns.openModalBtn.addEventListener("click", openModal);
-
+  
   function openModal() {
-    btns.modal.classList.remove("is-hidden");
-    window.addEventListener("keydown", onPressEscape);
-    btns.closeModalBtn.addEventListener("click", closeModal);
-    btns.modal.addEventListener("click", closeModal);
-  };
-  function closeModal() {
-    btns.modal.classList.add("is-hidden");
-    window.removeEventListener('keydown', onPressEscape);
+      btns.modal.classList.remove("is-hidden");
+      window.addEventListener("keydown", onPressEscape);
+      btns.closeModalBtn.addEventListener("click", closeModal);
+      btns.modal.addEventListener("click", closeModal);
+    };
+  function closeModal(event) {
+    console.log(event);
+    if (event.srcElement.className === "team-modal") {
+      return
+    } else{
+
     btns.closeModalBtn.removeEventListener("click", closeModal);
+    btns.modal.classList.add("is-hidden");
     btns.modal.removeEventListener("click", closeModal);
+  window.removeEventListener('keydown', onPressEscape);}
+  
   }
   function onPressEscape(event) {
     if (event.code === 'Escape') {
