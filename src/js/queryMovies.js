@@ -6,7 +6,7 @@ function queryMovies() {
     
     refs.gallery.innerHTML = '';
     
-    if (console.log(query.length > 0)) {
+    if (query.length > 0) {
         refs.searchBtn.click();
     } else {
         fetchMovies();
