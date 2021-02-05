@@ -21,7 +21,16 @@ function notify(nameOfList) {
     delay: 2000,
     overlayClosesPinned: true,
   })
-  refs.pagination.classList.add('visually-hidden')
+}
+
+function empty () {
+  PNotify.error({
+    text: 'Please, fill in the query field',
+    icon: true,
+    styling: 'custom',
+    delay: 2000,
+    overlayClosesPinned: true,
+  })
 }
   export default notify;
-export { error as error };
+export { error as error, empty as empty };
