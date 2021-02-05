@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 .light-theme {
   background-color: $light-theme-bgc;
   color: $light-theme-color;
@@ -11,48 +10,23 @@
 
 .lightbox__content.dark-theme {
   background-color: $dark-theme-bgc;
-=======
-//  rgba(255, 107, 1, 1)
-
-body.light-theme {
-  background-color: #fff;
-  color: #151617;
-}
-
-body.dark-theme {
-  background-color: #151617;
-  color: #fff;
->>>>>>> Stashed changes
 }
 
 .toolbar {
   display: flex;
-<<<<<<< Updated upstream
   justify-content: center;
   padding: 12px 12px;
-=======
-  justify-content: flex-end;
-  padding: 10px 12px;
->>>>>>> Stashed changes
 }
 
 /* THEME SWITCH */
 .theme-switch {
   display: flex;
   align-items: center;
-<<<<<<< Updated upstream
   z-index: 0;
 }
 
 .theme-switch__icon {
   color: #ffffff;
-=======
-  z-index: 100;
-}
-
-.theme-switch__icon {
-  color: #fff;
->>>>>>> Stashed changes
   height: 15px;
   width: 15px;
   margin-right: 8px;
@@ -90,11 +64,7 @@ body.dark-theme {
   height: 100%;
   color: transparent;
   user-select: none;
-<<<<<<< Updated upstream
   background-color: $accent-color;
-=======
-  background-color: rgba(255, 107, 1, 1);
->>>>>>> Stashed changes
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -102,11 +72,7 @@ body.dark-theme {
 
 .theme-switch__marker {
   position: relative;
-<<<<<<< Updated upstream
   background-color: #ffffff;
-=======
-  background-color: #fff;
->>>>>>> Stashed changes
   width: 12px;
   height: 12px;
   border-radius: 50%;
