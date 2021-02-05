@@ -44,6 +44,8 @@ const refs = {
 
   signIn: document.querySelector('#sign_in'),
   signOut: document.querySelector('#sign_out'),
+
+  searchBtn: document.querySelector('.search-btn'),
 };
 
 export default refs;
