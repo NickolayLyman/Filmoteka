@@ -25,8 +25,9 @@ function initApp() {
             
             refs.signOut.hidden = false;
             refs.signIn.hidden = true;
+            refs.userInfo.hidden = false;
 
-            //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
+            refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
             console.log(`Current user: ${displayName}`);
             readUserData(uid);  // загружает данные из БД
           
@@ -34,14 +35,20 @@ function initApp() {
           let queue = '99,88,77,66';
 
         // Функция будет перезаписывать данные. Функцию удаления фильмов с БД можно не писать
-        //addDataToRemoteStorage(uid, wathched, queue); 
+        
+        //addDataToRemoteStorage(uid, wathched, queue);
+       
+       
+        //Тут нужно вытянуть данные из localstorage и подставить в функцию
+       //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
 
         } else {
             // User is signed out.
             refs.signOut.hidden = true;
-            refs.signIn.hidden = false;
+          refs.signIn.hidden = false;
+          refs.userInfo.hidden = true;
           
-           // refs.userInfo.innerHTML = '';
+           refs.userInfo.innerHTML = '';
         }
     });
 }
@@ -80,8 +87,6 @@ function googleSignIn() {
         }
       });
 
-      //Тут нужно вытянуть данные из localstorage и подставить в функцию
-      //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
 
   }).catch((error) => {
       // Handle Errors here.
@@ -101,7 +106,7 @@ function googleSignOut() {
       console.log('Sign-out successful.');
       window.location.href = 'index.html';
       renderingContent();
-        //refs.userInfo.innerHTML = '';
+        refs.userInfo.innerHTML = '';
     }).catch((error) => {
         console.log('An error happened');
     });
@@ -112,7 +117,7 @@ const database = firebase.database();
 // Получает данные пользователя с текущим uid из БД
 function checkUserID() {
   const userId = firebase.auth().currentUser.uid;
-  return firebase.database().ref('/users/' + userId).once('value');
+  return database.ref('/users/' + userId).once('value');
 }
 
 // Записывает в БД основную инфу о пользователе, только при первом SignIn(при регистрации)
