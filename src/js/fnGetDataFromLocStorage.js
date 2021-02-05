@@ -2,7 +2,10 @@
 import addEmptyStylePage from './fnAddEmptyStylePage.js'
 import refs from './refs.js';
 import libraryListOfMovieTml from '../template/libraryListOfMovieTml.hbs';
-import deleteMovie from "./fnDelMovie.js"
+import deleteMovie from "./fnDelMovie.js";
+import emptyJpg from '../img/empty-img.jpg'
+
+
 
 function updateMarkup(movie) {
   let markup = '';
@@ -29,9 +32,12 @@ async function getMoviesFromLocalStorage(key) {
 
     movieObjects.map(({ id, name, poster_path, title, release_date, genres, vote_average }) => {
       const releaseDate = release_date.split('-')[0];
-      const movieGenres = genres.map(({ name }) => name).join(", ")
-      // console.log(genres)
-      const movie = [{ id, name, poster_path, title, releaseDate, movieGenres, vote_average }];
+      const movieGenres = genres.map(({ name }) => name).join(", ");
+      let img = poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : emptyJpg;
+      console.log('first', img)
+      const movie = [{ id, name, img, title, releaseDate, movieGenres, vote_average }];
       updateMarkup(movie);
     });
 
@@ -39,12 +45,12 @@ async function getMoviesFromLocalStorage(key) {
 
   addEmptyStylePage();
 
-  refs.gallery.addEventListener("click", () => {
+  refs.gallery.addEventListener("click", (event) => {
     if (event.target.classList.contains("delMovieBtn")) {
       const movieData = event.target;
-      deleteMovie(movieData)
+      deleteMovie(movieData);
     }
-  })
+  });
 }
 
 export default getMoviesFromLocalStorage;

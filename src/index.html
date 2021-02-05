@@ -91,7 +91,12 @@
         <div class="lightbox__content">
           <img class="lightbox__image" />
         </div>
-
+        <button type="button" class="lightbox__btn">
+          <svg class="close-modal-card-icon">
+            <use href="./img/sprite.svg#close-button"></use>
+          </svg>
+        </button>
+      
       </div>
 
     </section>
@@ -101,13 +106,13 @@
     <div class="pagination container">
 <div class="pagination-style">
       <button class="btn-page previous" data-index="1">&larr;</button>
-      <!-- <span class="btn-dots">...</span> -->
+      <span class="btn-dots js-dots1">...</span>
       <button class="btn-page1 active btn" data-index="1">1</button>
       <button class="btn-page2 btn" data-index="2">2</button>
       <button class="btn-page3 btn" data-index="3">3</button>
       <button class="btn-page4 btn" data-index="4">4</button>
       <button class="btn-page5 btn" data-index="5">5</button>
-      <span class="btn-dots">...</span>
+      <span class="btn-dots js-dots">...</span>
       <button class="btn-page next" data-index="1">&rarr;</button>
     </div>
    </div>
@@ -131,12 +136,12 @@
 
   <!-- TeamModal -->
   <div class="backdrop is-hidden">
+    <button type="button" class="team-modal-close-button">
+      <svg class="close-icon">
+        <use href="./img/sprite.svg#close-button"></use>
+      </svg>
+    </button>
     <div class="team-modal">
-      <button type="button" class="team-modal-close-button">
-        <svg class="close-icon">
-          <use href="./img/sprite.svg#close-button"></use>
-        </svg>
-      </button>
       <ul class="team-card-list">
         <li class="team-card-list-item">
           <img src="./img/teamMates/Nickolay.jpg" alt="teammate photo" class="team-card-list-img">

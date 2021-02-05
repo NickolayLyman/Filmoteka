@@ -1,8 +1,7 @@
 {{#each this}}
 <li class="movie-card">
     <div class="movie-wrapper">
-        <img class="movie-poster-lib" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}"
-            data-movie-id="{{id}}">
+        <img class="movie-poster-lib" src="{{this.img}}" alt="{{title}}" data-movie-id="{{id}}">
         <button class="delMovieBtn" id={{this.id}}>x</button>
     </div>
 
