@@ -6,12 +6,12 @@ import { fetchGenres } from './fetchMovies';
 import { updateMovieMarkup } from './fetchMovies';
 
 
-
+let query = '';
 
 function markupSearchedMovie() {
   refs.form.addEventListener('submit', event => {
     event.preventDefault();
-    let query = event.currentTarget.elements.search.value;
+    query = event.currentTarget.elements.search.value;
     console.log(query);
     refs.gallery.innerHTML = '';
 
@@ -35,3 +35,5 @@ function markupSearchedMovie() {
 }
 
 export default markupSearchedMovie;
+
+export { query };
