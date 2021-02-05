@@ -1,7 +1,7 @@
 const apiKey = "api_key=50b81e1c6c3b9e5f74d2015b742ff0b0";
 
-function fetchSearchedMovie(searchMovie) {
-    const url = `https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&page=1&include_adult=false&query=${searchMovie}`;
+function fetchSearchedMovie(searchMovie,currentSearchPage) {
+    const url = `https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&page=${currentSearchPage}&include_adult=false&query=${searchMovie}`;
     
     return fetch(url)
         .then(response => response.json())
@@ -9,5 +9,8 @@ function fetchSearchedMovie(searchMovie) {
     
     
 }
+
+
+
 
 export default fetchSearchedMovie;
