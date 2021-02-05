@@ -12,11 +12,18 @@
 <body>
   <header id="page-header" class="page-header">
     <div id="header" class="container">
+      
       <div class="ref-wrapper">
         <div class="logo-wrapper">
           <a class="logo-ref" href="index.html"><img class="logo-img" src="./img/film.svg" alt="film"><span
               class="logo-text-wrapper">Filmoteka</span> </a>
         </div>
+
+
+
+
+
+
         <div class="page-refs">
           <a class="home-ref activ-link-style" href="index.html">Home</a>
           <a class="library-ref remove" href="#library">MY Library</a>
@@ -32,6 +39,29 @@
           </svg>
         </button>
       </form>
+
+<div class="toolbar">
+  <!-- Разметка переключателя темы -->
+  <div class="theme-switch">
+    <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+      <use href="./img/sprite.svg#sun"></use>
+    </svg>
+
+    <div class="theme-switch__control">
+      <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+        aria-label="Переключить между тёмной и светлой темой" />
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+      </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
+    </div>
+
+    <svg class="theme-switch__icon" aria-label="Иконка луны">
+      <use href="./img/sprite.svg#moon"></use>
+    </svg>
+  </div>
+</div>
+
+
     </div>
     <!-- <header>
   <div id="header"></div> -->
