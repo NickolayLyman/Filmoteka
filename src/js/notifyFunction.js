@@ -1,6 +1,7 @@
 import '@pnotify/core/dist/PNotify.css';
 import * as PNotify from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
+import refs from './refs';
 
 function notify(nameOfList) {
   PNotify.notice({
@@ -20,6 +21,7 @@ function notify(nameOfList) {
     delay: 2000,
     overlayClosesPinned: true,
   })
+  refs.pagination.classList.add('visually-hidden')
 }
   export default notify;
 export { error as error };
