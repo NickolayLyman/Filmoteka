@@ -126,6 +126,24 @@ function writeUserData(userId, name, email, imageUrl) {
 //Считывает данные из БД firebase
 function readUserData(userId) {
   return firebase.database().ref('/users/' + userId).once('value');
+//   return firebase.database().ref('/users/' + userId).once('value').then((data) => console.log(data.val()));
 }
+
+
+//**Доделать**  Должна записывать данные из local storage в базу данных
+function addDataToRemoteStorage(userId, watched, queue) {
+
+  database.ref('users/' + userId).update({
+    watched: watched,
+    queue: queue,
+  }, (error) => {
+      if (error) {
+        console.log('Failed!');
+      } else {
+        console.log('Data added successfully!');
+      }
+    });
+    
+
 
 export { initApp, readUserData, checkUserID };
