@@ -1,5 +1,6 @@
 import itemsTemplate from '../template/myLibraryHeaderTamplate.hbs';
 import fnReloadPage from './fnReloadPage.js';
+import firebase from 'firebase/app';
 
 const headerRef = document.querySelector('#page-header');
 const libraryRef = document.querySelector('.library-ref');
@@ -16,7 +17,11 @@ const createMarkup = () => {
   headerRef.classList.replace('page-header', 'page-header-library');
 };
 
-libraryRef.addEventListener('click', createMarkup);
+libraryRef.addEventListener('click', () => {
+  if (firebase.auth().currentUser) {
+    createMarkup();
+  }
+})
 
 removeListenerBtnRef.addEventListener('click', () => {
   removeListenerBtnRef.removeEventListener('click', createMarkup);

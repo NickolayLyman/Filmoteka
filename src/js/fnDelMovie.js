@@ -1,13 +1,13 @@
-import removeFromLocalStoryge from './fnRemoveFromLocalStorage.js'
+// import * as remove from './fnDelMovieFromFirebase.js'
 
-function deleteMovie(data) {
-    if (window.location.hash === '#library') {
-        removeFromLocalStoryge('watched', data.id);
+// //const uid = firebase.auth().currentUser.uid;
+// function deleteMovie(data, uid) {
+//     if (window.location.hash === '#library') {
+//         remove.removeWatchedList(uid, data.id)
+//     }
+//     if (window.location.hash === '#queue') {
+//         remove.removeQueueList(uid, data.id)
+//     }
+// }
 
-    }
-    if (window.location.hash === '#queue') {
-        removeFromLocalStoryge('queue', data.id);
-    }
-}
-
-export default deleteMovie;
+// export default deleteMovie;

@@ -1,8 +1,8 @@
 import refs from './refs.js';
 import fnAddEmptyStylePage from './fnAddEmptyStylePage.js'
-import getMoviesFromLocalStorage from './fnGetDataFromLocStorage.js';
 import * as library from './myLibrary.js';
-
+import * as get from './fnGetDataFromFireBase.js';
+import firebase from 'firebase/app';
 
 
 function fnReloadPage() {
@@ -14,13 +14,14 @@ function fnReloadPage() {
     refs.pagination.setAttribute("hidden", "true");
     refs.gallery.innerHTML = '';
     //fnAddEmptyStylePage();
-    getMoviesFromLocalStorage('watched');
+    get.getMoviesWatched(firebase.auth().currentUser.uid);
   }
   if (window.location.hash === '#queue') {
-    refs.pagination.setAttribute("hidden", "true")
-    library.queueSetStyles()
+    refs.pagination.setAttribute("hidden", "true");
+    refs.gallery.innerHTML = '';
+    //get.getMoviesQueue(firebase.auth().currentUser.uid)
+    library.queueSetStyles();
   }
-
 }
 
 export default fnReloadPage;

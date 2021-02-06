@@ -35,7 +35,6 @@ function fetchGenres() {
 
 
 function updateMovieMarkup(films, genres) {
-  console.log('popular', films)
   films.map(({ id, poster_path, title, release_date, genre_ids }) => {
     const filterGenres = genres.filter(genre => genre_ids.includes(genre.id));
     const mapGenres = filterGenres.map(({ name }) => name);
