@@ -144,6 +144,6 @@ function addDataToRemoteStorage(userId, watched, queue) {
       }
     });
     
-
+  }
 
 export { initApp, readUserData, checkUserID };
