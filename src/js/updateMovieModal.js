@@ -3,8 +3,6 @@ import movieModalTpl from '../template/movieModal.hbs';
 
 function updateMovieModal(movie) {
 
-
-
     let markup = '';
 
     if (movie.status !== '404') {

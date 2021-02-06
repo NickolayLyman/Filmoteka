@@ -1,6 +1,9 @@
 import refs from './refs.js';
-import getMoviesFromLocalStorage from './fnGetDataFromLocStorage.js';
-import deleteMovie from "./fnDelMovie.js"
+import * as get from './fnGetDataFromFireBase.js';
+import firebase from 'firebase/app';
+import * as not from './fnNotify.js';
+import { registerDecorator } from 'handlebars';
+
 
 
 refs.homeBtn.addEventListener('click', () => {
@@ -13,24 +16,30 @@ refs.homeBtn.addEventListener('click', () => {
 
 function createLibraryPage() {
   refs.libraryButton.addEventListener('click', () => {
+
     refs.pagination.setAttribute("hidden", "true")
     refs.gallery.innerHTML = '';
-    getMoviesFromLocalStorage('watched');
-    if (refs.homeBtn.classList.contains('activ-link-style')) {
-      refs.homeBtn.classList.remove('activ-link-style');
-      refs.libraryButton.classList.add('activ-link-style');
+    if (firebase.auth().currentUser) {
+      get.getMoviesWatched(firebase.auth().currentUser.uid);
+      if (refs.homeBtn.classList.contains('activ-link-style')) {
+        refs.homeBtn.classList.remove('activ-link-style');
+        refs.libraryButton.classList.add('activ-link-style');
+      }
+
+      if (refs.queueBtn().classList.contains('btn-active-style')) {
+        console.log('hello');
+        toggleClass(refs.queueBtn());
+        toggleClass(refs.watchedBtn());
+        refs.queueBtn().toggleAttribute('disabled');
+        refs.watchedBtn().toggleAttribute('disabled');
+      }
+    } else {
+      not.authNotify();
     }
 
-    if (refs.queueBtn().classList.contains('btn-active-style')) {
-      console.log('hello');
-      toggleClass(refs.queueBtn());
-      toggleClass(refs.watchedBtn()); l
-      refs.queueBtn().toggleAttribute('disabled');
-      refs.watchedBtn().toggleAttribute('disabled');
-    }
   });
 
-  refs.header.addEventListener('click', () => {
+  refs.header.addEventListener('click', (event) => {
     if (event.target.dataset.queueFilmBtn) {
       queueSetStyles();
     }
@@ -44,18 +53,30 @@ function createLibraryPage() {
 function queueSetStyles() {
   window.location.hash = '#queue'
   refs.gallery.innerHTML = '';
-  getMoviesFromLocalStorage('queue');
-  toggleClass(refs.queueBtn());
-  toggleClass(refs.watchedBtn());
-  refs.queueBtn().setAttribute('disabled', true);
-  refs.watchedBtn().removeAttribute('disabled');
+  if (firebase.auth().currentUser.uid) {
+    if (refs.gallery.classList.contains('empty-page-style')) {
+      refs.gallery.classList.remove("empty-page-style");
+      refs.gallery.classList.add("gallery");
+
+    }
+    get.getMoviesQueue(firebase.auth().currentUser.uid)
+    toggleClass(refs.queueBtn());
+    toggleClass(refs.watchedBtn());
+    refs.queueBtn().setAttribute('disabled', true);
+    refs.watchedBtn().removeAttribute('disabled');
+  }
+
+
 }
 
 function watchedSetStyle() {
   window.location.hash = '#library'
   refs.gallery.innerHTML = '';
-  getMoviesFromLocalStorage('watched');
-  toggleClass(refs.watchedBtn());
+  if (firebase.auth().currentUser) {
+    get.getMoviesWatched(firebase.auth().currentUser.uid);
+  } else {
+    not.authNotify();
+  } toggleClass(refs.watchedBtn());
   toggleClass(refs.queueBtn());
   refs.queueBtn().removeAttribute('disabled');
   refs.watchedBtn().setAttribute('disabled', true);

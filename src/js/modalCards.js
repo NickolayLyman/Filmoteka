@@ -2,6 +2,9 @@ import fetchOneMovie from './fetchOneMovie';
 import updateMovieModal from './updateMovieModal';
 import refs from './refs';
 import emptyJpg from '../img/empty-img.jpg'
+import firebase from 'firebase/app';
+import * as auth from './Auth.js';
+
 
 
 refs.gallery.addEventListener('click', onImgClick)
@@ -50,33 +53,46 @@ refs.gallery.addEventListener('click', (ev) => {
 })
 
 
+
+
 function checkMovieInStorage(movieId) {
-  if (localStorage.getItem("watched") || localStorage.getItem("queue")) {
-    console.log("we are in!")
-    const dataFromWatched = localStorage.getItem("watched");
-    const dataFromQueue = localStorage.getItem("queue");
-    const addToWatched = refs.addToWatched(true);
-    const addToQueue = refs.addToQueue(true);
-
-    if (dataFromWatched.includes(movieId)) {
-      if (addToWatched.classList.contains("active-btn-style")) {
-        addToWatched.classList.remove('active-btn-style');
-        addToWatched.classList.add('inactive-btn-style');
-        addToWatched.textContent = "ALREADY IN WATCHED";
-        addToWatched.setAttribute("disabled", 'true');
-      }
-    }
-    if (dataFromQueue.includes(movieId)) {
-      if (addToQueue.classList.contains("active-btn-style")) {
-        addToQueue.classList.remove('active-btn-style');
-        addToQueue.classList.add('inactive-btn-style');
-        addToQueue.textContent = "ALREADY IN QUEUE";
-        addToQueue.setAttribute("disabled", 'true');
-
-      }
-    }
+  let currentUser = firebase.auth().currentUser
+  if (!currentUser) {
+    return;
   }
+
+  auth.readUserData(currentUser.uid)
+    .then((data) => (data.val())).then((data) => {
+      if (data.watched || data.queue) {
+        console.log("we are in!")
+        const dataFromWatched = data.watched;
+        const dataFromQueue = data.queue;
+        console.log("ok")
+        const addToWatched = refs.addToWatched(true);
+        const addToQueue = refs.addToQueue(true);
+
+        if (dataFromWatched.includes(movieId)) {
+          if (addToWatched.classList.contains("active-btn-style")) {
+            addToWatched.classList.remove('active-btn-style');
+            addToWatched.classList.add('inactive-btn-style');
+            addToWatched.textContent = "ALREADY IN WATCHED";
+            addToWatched.setAttribute("disabled", 'true');
+          }
+        }
+        if (dataFromQueue.includes(movieId)) {
+          if (addToQueue.classList.contains("active-btn-style")) {
+            addToQueue.classList.remove('active-btn-style');
+            addToQueue.classList.add('inactive-btn-style');
+            addToQueue.textContent = "ALREADY IN QUEUE";
+            addToQueue.setAttribute("disabled", 'true');
+
+          }
+        }
+      }
+    })
+
 }
+
 refs.btnClose.addEventListener("click", closeModal);
 refs.overlayDiv.addEventListener('click', closeModal);
 
