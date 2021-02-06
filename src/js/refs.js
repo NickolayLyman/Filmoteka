@@ -45,6 +45,7 @@ const refs = {
 
   signIn: document.querySelector('#sign_in'),
   signOut: document.querySelector('#sign_out'),
+  userInfo: document.querySelector('.user-info'),
 
   searchBtn: document.querySelector('.search-btn'),
 };

@@ -12,7 +12,6 @@
 <body>
   <header id="page-header" class="page-header">
     <div id="header" class="container">
-      
       <div class="ref-wrapper">
         <div class="logo-wrapper">
           <a class="logo-ref" href="index.html"><img class="logo-img" src="./img/film.svg" alt="film"><span
@@ -21,8 +20,11 @@
         <div class="page-refs">
           <a class="home-ref activ-link-style" href="index.html">Home</a>
           <a class="library-ref remove" href="#library">MY Library</a>
-          <button class="auth-btn" id="sign_in">Sign in</button>
-          <button class="auth-btn" id="sign_out">Sign out</button>
+          <div class="auth">
+            <button class="auth-btn" id="sign_in">Sign in</button>
+            <button class="auth-btn" id="sign_out" hidden>Sign out</button>
+            <div class="user-info" hidden></div>
+          </div>
         </div>
       </div>
       <form class="search-form" id="search-form">
@@ -33,30 +35,27 @@
           </svg>
         </button>
       </form>
-
-<div class="toolbar">
-  <!-- Разметка переключателя темы -->
-  <div class="theme-switch">
-    <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-      <use href="./img/sprite.svg#sun"></use>
-    </svg>
-
-    <div class="theme-switch__control">
-      <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
-        aria-label="Переключить между тёмной и светлой темой" />
-      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
-      </label>
-      <div aria-hidden="true" class="theme-switch__marker"></div>
-    </div>
-
-    <svg class="theme-switch__icon" aria-label="Иконка луны">
-      <use href="./img/sprite.svg#moon"></use>
-    </svg>
+      <div class="toolbar">
+        <!-- Разметка переключателя темы -->
+        <div class="theme-switch">
+          <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+            <use href="./img/sprite.svg#sun"></use>
+          </svg>
+      
+          <div class="theme-switch__control">
+            <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+              aria-label="Переключить между тёмной и светлой темой" />
+            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+            </label>
+            <div aria-hidden="true" class="theme-switch__marker"></div>
+          </div>
+      
+          <svg class="theme-switch__icon" aria-label="Иконка луны">
+            <use href="./img/sprite.svg#moon"></use>
+          </svg>
+        </div>
+      </div>
   </div>
-</div>
-
-
-    </div>
     <!-- <header>
   <div id="header"></div> -->
   </header>
@@ -91,8 +90,8 @@
 
 
     <!-- Pagination -->
-    <div class="pagination container">
-<div class="pagination-style">
+  <div class="pagination container">
+    <div class="pagination-style">
       <button class="btn-page previous" data-index="1">&larr;</button>
       <span class="btn-dots js-dots1">...</span>
       <button class="btn-page1 active btn" data-index="1">1</button>
