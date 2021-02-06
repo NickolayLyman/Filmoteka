@@ -114,11 +114,17 @@
 
 .movie-poster {
   @media screen and (min-width: 1024px) {
-    max-height: 280px;
+    height: 280px;
+    width: 186px;
   }
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    max-height: 580px;
+    height: 580px;
+    width: 386px;
   }
+  
+    height: 435px;
+    width: 290px;
+  
   cursor: pointer;
   border-radius: 5px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.6));
