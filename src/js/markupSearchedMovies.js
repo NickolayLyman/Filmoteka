@@ -35,6 +35,7 @@ function markupSearchedMovie() {
       if (results.length === 0) {
         error();
         refs.pagination.classList.add('visually-hidden')
+        spinner.stop();
         return
 
       }
