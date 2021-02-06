@@ -88,7 +88,7 @@ function googleSignIn() {
 }
 
 function googleSignOut() {
-  
+
   firebase.auth().signOut().then(() => {
     console.log('Sign-out successful.');
     window.location.href = 'index.html';
@@ -98,9 +98,6 @@ function googleSignOut() {
     console.log('An error happened');
   });
 }
-
-
-const database = firebase.database();
 
 // Получает данные пользователя с текущим uid из БД
 function checkUserID() {

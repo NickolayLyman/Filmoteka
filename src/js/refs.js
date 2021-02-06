@@ -9,6 +9,7 @@ const searchBySelector = querySelector => {
 };
 
 const refs = {
+  headerBtnWrapper: searchBySelector('div.btn-wrapper'),
   body: document.querySelector('body'),
   upBtn: document.querySelector('.up-btn-wrapper'),
   gallery: document.querySelector('#gallery'),
