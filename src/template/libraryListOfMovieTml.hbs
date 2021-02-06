@@ -1,0 +1,21 @@
+{{#each this}}
+<li class="movie-card">
+    <div class="movie-wrapper">
+        <img class="movie-poster-lib" src="{{this.img}}" alt="{{title}}" data-movie-id="{{id}}">
+        <button class="delMovieBtn" id={{this.id}}>x</button>
+    </div>
+
+    <div class="movie-title-wrapper">
+        <h1 class="movie-title">{{this.title}}</h1>
+
+    </div>
+    <div class="info-wrapper">
+        <p class="movie-info">
+            {{this.movieGenres}} | {{this.releaseDate}}
+        </p>
+        <p class="vote">{{this.vote_average}}</p>
+
+    </div>
+
+</li>
+{{/each}}

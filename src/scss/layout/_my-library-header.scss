@@ -1,0 +1,60 @@
+.page-header-library {
+  height: 230px;
+  padding-top: 40px;
+  padding-bottom: 75px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../img/bg-img-library1024.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 480px) and (max-width: 1023px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../img/bg-img-library768.jpg);
+  }
+  @media screen and (max-width: 479px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../img/bg-img-library320.jpg);
+  }
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.btn {
+  width: 136px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  transition: 1s;
+  &:not(:last-child) {
+    transition: 1s;
+    margin-right: 15px;
+  }
+  //   &:hover,
+  //   :focus {
+  //     background-color: $accent-color;
+  //     border-color: $accent-color;
+  //   }
+}
+
+.btn-nonactive-style {
+  background-color: transparent;
+  &:hover,
+  :focus {
+    transition: 1s;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
+.btn-active-style {
+  background-color: $accent-color;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+}

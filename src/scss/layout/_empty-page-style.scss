@@ -1,0 +1,21 @@
+.empty-page-style {
+  display: block;
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    @media screen and (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+  img {
+    width: 800px;
+    margin: auto;
+  }
+}

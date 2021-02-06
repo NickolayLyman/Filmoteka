@@ -15,6 +15,7 @@ html {
     font-size: 18px;
     color: #000;
     line-height: 1.22;
+    user-select:none;
   }
   ul {
     padding: 0;
@@ -31,4 +32,14 @@ html {
     display: block;
     max-width: 100%;
     height: auto;
+  }
+  .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
   }
