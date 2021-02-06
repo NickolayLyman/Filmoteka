@@ -1,13 +1,17 @@
 import setToLocalStorage from './fnSetToLocalStorage.js';
 import refs from './refs.js';
+import * as get from './fnGetDataFromFireBase.js';
+import firebase from 'firebase/app';
+import * as auth from './Auth.js';
 
 function addDataToLocalStorage() {
-  refs.lightbox.addEventListener('click', ev => {
+  refs.lightbox.addEventListener('click', (event) => {
     if (event.target.dataset.actionWatched) {
-      //event.target.setAttribute('disabled', 'true');
       let movieId = event.target.dataset.movieId;
       const addToWatched = refs.addToWatched(true);
-      setToLocalStorage(movieId, 'watched', '"WATCHED"');
+
+      get.getMoviesWatched(firebase.auth().currentUser.uid);
+
       if (addToWatched.classList.contains("active-btn-style")) {
         addToWatched.classList.remove('active-btn-style');
         addToWatched.classList.add('inactive-btn-style');
