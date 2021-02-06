@@ -1,5 +1,6 @@
 import refs from './refs';
-import fetchMovies from './fetchMovies';
+import queryMovies from './queryMovies'
+
 
 refs.pagination.addEventListener("click", onBtnClick);
 let currentPage = 1;
@@ -59,13 +60,13 @@ function onBtnClick(event) {
       btn5.dataset.index = Number(btn5.dataset.index) - 5;
       currentPage = previous.dataset.index;
     }
-    // console.log('currentPage>', currentPage);
+    console.log('currentPage>', currentPage);
     if (event.target.classList.contains("btn")) {
       setBtnActiveStyle(event)
     }
-    refs.gallery.innerHTML = '';
-    fetchMovies(currentPage);
-  }
+
+    queryMovies()
+    }
 
   if (Number(currentPage) > 5) {
     refs.previous.hidden = false;

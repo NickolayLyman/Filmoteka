@@ -14,6 +14,7 @@ refs.signOut.addEventListener('click', googleSignOut);
     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
     *    out, and that is where we update the UI.
     */
+
 function initApp(callback) {
   // Auth state changes.
   firebase.auth().onAuthStateChanged(function (user) {
@@ -71,8 +72,7 @@ function googleSignIn() {
         }
       });
 
-      //Тут нужно вытянуть данные из localstorage и подставить в функцию
-      //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
+
 
     }).catch((error) => {
       // Handle Errors here.
@@ -88,6 +88,7 @@ function googleSignIn() {
 }
 
 function googleSignOut() {
+  
   firebase.auth().signOut().then(() => {
     console.log('Sign-out successful.');
     window.location.href = 'index.html';
@@ -97,6 +98,7 @@ function googleSignOut() {
     console.log('An error happened');
   });
 }
+
 
 const database = firebase.database();
 

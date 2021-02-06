@@ -13,6 +13,7 @@ const refs = {
   upBtn: document.querySelector('.up-btn-wrapper'),
   gallery: document.querySelector('#gallery'),
   form: document.querySelector('.search-form'),
+  input: document.querySelector('.search-field'),
   modalDiv: document.querySelector('.js-lightbox'),
   lightbox: document.querySelector('.lightbox'),
   overlayDiv: document.querySelector('.lightbox__overlay'),
@@ -44,6 +45,9 @@ const refs = {
 
   signIn: document.querySelector('#sign_in'),
   signOut: document.querySelector('#sign_out'),
+  userInfo: document.querySelector('.user-info'),
+
+  searchBtn: document.querySelector('.search-btn'),
 };
 
 export default refs;

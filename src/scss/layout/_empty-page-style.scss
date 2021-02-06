@@ -9,6 +9,9 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
+    @media screen and (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 
   img {
