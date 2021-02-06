@@ -20,6 +20,7 @@ const refs = {
   btnClose: document.querySelector('.lightbox__btn'),
   modalDivContent: document.querySelector('.lightbox__content'),
   libraryButton: document.querySelector('.library-ref'),
+  loadMoreBtn: document.querySelector('.load-more'),
   container: document.getElementById('.container'),
   header: document.querySelector('#page-header'),
   galleryList: document.querySelector('.gallery'),

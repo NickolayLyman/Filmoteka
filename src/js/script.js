@@ -5,11 +5,11 @@ import refs from './refs.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import renderingContent from './renderingContent.js';
-import markUpSearchMovie from './markupSearchedMovies'
-
+// import markUpSearchMovie from './markupSearchedMovies'
+import markupSearchedMovieAPI from './markupSearchMoviesAPI'
 
 renderingContent();
-markUpSearchMovie();
+markupSearchedMovieAPI();
 library.createLibraryPage();
 addDataToLocalStorage();
 
