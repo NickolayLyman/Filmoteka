@@ -8,7 +8,7 @@ import renderingContent from './renderingContent';
 firebase.initializeApp(firebaseConfig);
 
 refs.signIn.addEventListener('click', googleSignIn);
- refs.signOut.addEventListener('click', googleSignOut);
+refs.signOut.addEventListener('click', googleSignOut);
 /**
     * initApp handles setting up UI event listeners and registering Firebase auth listeners:
     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
@@ -18,30 +18,39 @@ function initApp() {
 // Auth state changes.
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            // User is signed in.
-            const displayName = user.displayName;
-            const photoURL = user.photoURL;
-            const uid = user.uid;
+          // User is signed in.
+          const displayName = user.displayName;
+          const photoURL = user.photoURL;
+          const email = user.email;
+          const uid = user.uid;
             
-            refs.signOut.hidden = false;
-            refs.signIn.hidden = true;
-
-            //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
-            console.log(`Current user: ${displayName}`);
-            readUserData(uid);  // загружает данные из БД
+          refs.signOut.hidden = false;
+          refs.signIn.hidden = true;
+          refs.userInfo.hidden = false;
+          refs.userInfo.innerHTML =
+            `<img class="user-img" src="${photoURL}"> 
+            <div class="user-block">
+              <p class="user-name">${displayName}</p>
+              <p class="user-email">${email}</p>
+            </div>`;
+          console.log(`Current user: ${displayName}`);
+          readUserData(uid);  // загружает данные из БД
           
           let wathched = '11,22,33,44';
           let queue = '99,88,77,66';
+
+        //Тут нужно вытянуть данные из localstorage и подставить в функцию
+        //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
 
         // Функция будет перезаписывать данные. Функцию удаления фильмов с БД можно не писать
         //addDataToRemoteStorage(uid, wathched, queue); 
 
         } else {
-            // User is signed out.
-            refs.signOut.hidden = true;
-            refs.signIn.hidden = false;
-          
-           // refs.userInfo.innerHTML = '';
+          // User is signed out.
+          refs.signOut.hidden = true;
+          refs.signIn.hidden = false;
+          refs.userInfo.innerHTML = '';
+          refs.userInfo.hidden = true;
         }
     });
 }
@@ -80,8 +89,7 @@ function googleSignIn() {
         }
       });
 
-      //Тут нужно вытянуть данные из localstorage и подставить в функцию
-      //Нужно Решить на каком этапе данные из LS будут заливаться в БД (при SignOut?)
+
 
   }).catch((error) => {
       // Handle Errors here.
@@ -101,7 +109,8 @@ function googleSignOut() {
       console.log('Sign-out successful.');
       window.location.href = 'index.html';
       renderingContent();
-        //refs.userInfo.innerHTML = '';
+      refs.userInfo.innerHTML = '';
+      refs.userInfo.hidden = true;
     }).catch((error) => {
         console.log('An error happened');
     });
@@ -140,7 +149,7 @@ function readUserData(userId) {
 function addDataToRemoteStorage(userId, watched, queue) {
 
   database.ref('users/' + userId).update({
-    wathched: watched,
+    watched: watched,
     queue: queue,
   }, (error) => {
       if (error) {
