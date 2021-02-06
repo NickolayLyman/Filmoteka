@@ -7,9 +7,29 @@ function notify(nameOfList) {
     text: `The movie has been added to the ${nameOfList} list`,
     icon: true,
     styling: 'custom',
-    delay: 700,
+    delay: 1500,
     overlayClosesPinned: true,
   });
 }
 
-export default notify;
+function authNotify() {
+  PNotify.notice({
+    text: `Please sign in first`,
+    icon: true,
+    styling: 'custom',
+    delay: 1500,
+    overlayClosesPinned: true,
+  });
+}
+
+// function signOutNotify() {
+//   PNotify.notice({
+//     text: `you are logged out`,
+//     icon: true,
+//     styling: 'custom',
+//     delay: 1000,
+//     overlayClosesPinned: true,
+//   });
+// }
+
+export { authNotify, notify };
