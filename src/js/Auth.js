@@ -22,12 +22,19 @@ function initApp(callback) {
       // User is signed in.
       const displayName = user.displayName;
       const photoURL = user.photoURL;
+      const email = user.email;
       const uid = user.uid;
 
       refs.signOut.hidden = false;
       refs.signIn.hidden = true;
+      refs.userInfo.hidden = false;
+      refs.userInfo.innerHTML =
+            `<img class="user-img" src="${photoURL}"> 
+            <div class="user-block">
+              <p class="user-name">${displayName}</p>
+              <p class="user-email">${email}</p>
+            </div>`;
 
-      //refs.userInfo.innerHTML = `<img src="${photoURL}"> ${displayName}`;
       console.log(`Current user: ${displayName}`, `userId: ${uid}`);
       readUserData(uid)  // загружает данные из БД
 
@@ -35,8 +42,8 @@ function initApp(callback) {
       // User is signed out.
       refs.signOut.hidden = true;
       refs.signIn.hidden = false;
-
-      // refs.userInfo.innerHTML = '';
+      refs.userInfo.hidden = true;
+      refs.userInfo.innerHTML = '';
     }
     callback();
   });
@@ -93,7 +100,8 @@ function googleSignOut() {
     console.log('Sign-out successful.');
     window.location.href = 'index.html';
     renderingContent();
-    //refs.userInfo.innerHTML = '';
+    refs.userInfo.innerHTML = '';
+    refs.userInfo.hidden = true;
   }).catch((error) => {
     console.log('An error happened');
   });
