@@ -4,7 +4,8 @@ import refs from './refs';
 import { error, empty } from './notifyFunction';
 import { fetchGenres } from './fetchMovies';
 import { updateMovieMarkup } from './fetchMovies';
-
+import { Spinner } from 'spin.js';
+import opts from './spinner'
 
 let query = '';
 
@@ -24,6 +25,10 @@ function markupSearchedMovie() {
       refs.gallery.innerHTML = '';
       return;
     }
+
+     var target = document.getElementById('gallery');
+    var spinner = new Spinner(opts).spin(target);
+    
     fetchSearchedMovie(query).then(({ results }) => {
       console.log('search', { results })
 
@@ -37,6 +42,8 @@ function markupSearchedMovie() {
       fetchGenres().then(({ genres }) => {
         updateMovieMarkup(results, genres);
 
+      }).finally(() => {
+        spinner.stop();
       });
       
     }
