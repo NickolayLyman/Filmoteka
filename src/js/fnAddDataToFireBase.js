@@ -5,8 +5,6 @@ import firebase from 'firebase/app';
 import * as not from './fnNotify.js';
 
 
-const database = firebase.database()
-
 function addDataToFireBaseStorage() {
     refs.lightbox.addEventListener('click', (event) => {
 
@@ -73,7 +71,7 @@ function addDataToFireBaseStorage() {
 
 function updateQueuetList(userId, movieId) {
     //console.log('hello', watched, queue)
-    database.ref('users/' + userId).update({
+    firebase.database().ref('users/' + userId).update({
         queue: movieId,
     }, (error) => {
         if (error) {
@@ -86,7 +84,7 @@ function updateQueuetList(userId, movieId) {
 
 function updateWatchetList(userId, movieId) {
     //console.log('hello', watched, queue)
-    database.ref('users/' + userId).update({
+    firebase.database().ref('users/' + userId).update({
         watched: movieId,
     }, (error) => {
         if (error) {

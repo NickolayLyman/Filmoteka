@@ -4,8 +4,6 @@ import firebase from 'firebase/app';
 import * as add from './fnAddDataToFireBase.js'
 import * as get from './fnGetDataFromFireBase'
 
-const database = firebase.database()
-
 function removeWatchedList(uid, dataId) {
     auth.readUserData(uid)
         .then((data) => (data.val())).then((data) => {
@@ -21,13 +19,15 @@ function removeWatchedList(uid, dataId) {
                 get.getMoviesWatched(uid);
             }
         })
-    if (addToWatched.classList.contains("active-btn-style")) {
-        addToWatched.classList.remove('active-btn-style');
-        addToWatched.classList.add('inactive-btn-style');
-        addToWatched.textContent = "ALREADY IN WATCHED";
-        addToWatched.setAttribute("disabled", 'true');
-    }
+
 };
+
+// if (addToWatched.classList.contains("active-btn-style")) {
+//     addToWatched.classList.remove('active-btn-style');
+//     addToWatched.classList.add('inactive-btn-style');
+//     addToWatched.textContent = "ALREADY IN WATCHED";
+//     addToWatched.setAttribute("disabled", 'true');
+// }
 
 function removeQueueList(uid, dataId) {
     auth.readUserData(uid)
@@ -45,14 +45,16 @@ function removeQueueList(uid, dataId) {
                 get.getMoviesQueue(uid);
             }
         })
-    if (addToQueue.classList.contains("active-btn-style")) {
-        //console.log("queue")
-        addToQueue.classList.remove('active-btn-style');
-        addToQueue.classList.add('inactive-btn-style');
-        addToQueue.textContent = "ALREADY IN QUEUE";
-        addToQueue.setAttribute("disabled", 'true');
-    }
+
 };
+
+// if (addToQueue.classList.contains("active-btn-style")) {
+//     //console.log("queue")
+//     addToQueue.classList.remove('active-btn-style');
+//     addToQueue.classList.add('inactive-btn-style');
+//     addToQueue.textContent = "ALREADY IN QUEUE";
+//     addToQueue.setAttribute("disabled", 'true');
+// }
 
 export {
     removeWatchedList,
