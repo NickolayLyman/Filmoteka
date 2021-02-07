@@ -37,6 +37,7 @@ const refs = {
   next: document.querySelector('.next'),
   dots1: document.querySelector('.js-dots1'),
   dots2: document.querySelector('.js-dots2'),
+  btnMore: document.querySelector('.btn-load-more'),
 
   queueBtn: searchBySelector('#watched-queue-btn'),
   watchedBtn: searchBySelector('#watched-film-btn'),

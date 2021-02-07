@@ -56,3 +56,26 @@
   background: #ff6b08;
   color: #ffff;
 }
+
+.btn-load-more {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  width: 140px;
+  height: 40px;
+  background: #ff6b08;
+  color: #000;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-load-more:hover,
+.btn-load-more:focus {
+  transition: 1s;
+  color: #ffff;
+  background: #ff6b08;
+  transform: scale(1.07);
+}
