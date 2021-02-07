@@ -74,6 +74,10 @@ function watchedSetStyle() {
   window.location.hash = '#library'
   refs.gallery.innerHTML = '';
   if (firebase.auth().currentUser) {
+    if (refs.gallery.classList.contains('empty-page-style')) {
+      refs.gallery.classList.remove("empty-page-style");
+      refs.gallery.classList.add("gallery");
+    }
     get.getMoviesWatched(firebase.auth().currentUser.uid);
   } else {
     not.authNotify();
