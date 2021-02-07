@@ -71,4 +71,5 @@ function fetchMoreMovie() {
 export default markupSearchedMovie;
  
 export { query };
+  
  
