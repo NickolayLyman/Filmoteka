@@ -3,6 +3,8 @@ import refs from './refs';
 import { error, empty } from './notifyFunction';
 import { fetchGenres } from './fetchMovies';
 import { updateMovieMarkup } from './fetchMovies';
+import { Spinner } from 'spin.js';
+import opts from './spinner'
 
  
 let query = '';
@@ -45,19 +47,26 @@ function markupSearchedMovie() {
      refs.btnMore.style.display = 'none';
      return;
    }
+
+   var target = document.getElementById('gallery');
+   var spinner = new Spinner(opts).spin(target);
+   
    fetchSearchedMovie(query, page).then(({ results }) => {
      console.log('search', { results })
  
      if (results.length === 0) {
        error();
        refs.btnMore.style.display = 'none';
+       spinner.stop();
        return
  
      }
      fetchGenres().then(({ genres }) => {
        updateMovieMarkup(results, genres);
  
-     });
+     }).finally(() => {
+        spinner.stop();
+      });
     
    }
    )
