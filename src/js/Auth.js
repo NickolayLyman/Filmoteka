@@ -115,7 +115,7 @@ function checkUserID() {
 
 // Записывает в БД основную инфу о пользователе, только при первом SignIn(при регистрации)
 function writeUserData(userId, name, email, imageUrl) {
-  database.ref('users/' + userId).set({
+  firebase.database().ref('users/' + userId).set({
     username: name,
     email: email,
     profile_picture: imageUrl
