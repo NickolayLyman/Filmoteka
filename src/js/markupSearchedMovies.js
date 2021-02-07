@@ -50,6 +50,7 @@ function markupSearchedMovie() {
  
      if (results.length === 0) {
        error();
+       refs.btnMore.style.display = 'none';
        return
  
      }
