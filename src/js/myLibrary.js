@@ -17,6 +17,7 @@ refs.homeBtn.addEventListener('click', () => {
 function createLibraryPage() {
   refs.libraryButton.addEventListener('click', () => {
 
+    refs.btnMore.style.display = 'none';
     refs.pagination.setAttribute("hidden", "true")
     refs.gallery.innerHTML = '';
     if (firebase.auth().currentUser) {

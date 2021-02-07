@@ -3,7 +3,7 @@ import refs from './refs';
 import { error, empty } from './notifyFunction';
 import { fetchGenres } from './fetchMovies';
 import { updateMovieMarkup } from './fetchMovies';
- 
+
  
 let query = '';
 let page = 1;
@@ -41,6 +41,8 @@ function markupSearchedMovie() {
    if (refs.input.value === ''){
      empty();
      refs.gallery.innerHTML = '';
+     refs.pagination.hidden = true
+     refs.btnMore.style.display = 'none';
      return;
    }
    fetchSearchedMovie(query, page).then(({ results }) => {
