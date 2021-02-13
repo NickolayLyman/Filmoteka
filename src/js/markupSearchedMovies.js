@@ -76,9 +76,9 @@ function markupSearchedMovie() {
 refs.btnMore.addEventListener('click', fetchMoreMovie);
  
 function fetchMoreMovie() {
- page = page + 1;
- refs.searchBtn.click()
-}
+  page = page + 1;
+  refs.searchBtn.click()
+  }
  
 export default markupSearchedMovie;
  
